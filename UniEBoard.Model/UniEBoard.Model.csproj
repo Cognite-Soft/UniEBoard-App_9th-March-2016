@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{47742751-7136-4C84-82AC-849DD9AF97AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniEBoard.Model</RootNamespace>
+    <AssemblyName>UniEBoard.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\Dependencies\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Adapters\Caching\HttpContextCacheAdapter.cs" />
+    <Compile Include="Adapters\Caching\NullObjectCacheAdapter.cs" />
+    <Compile Include="Adapters\Caching\RuntimeCacheAdapter.cs" />
+    <Compile Include="Adapters\ExceptionHandling\NullExceptionManagerAdapter.cs" />
+    <Compile Include="Adapters\ExceptionHandling\EnterpriseLibraryExceptionManagerAdapter.cs" />
+    <Compile Include="Adapters\Files\FileManager.cs" />
+    <Compile Include="Adapters\Logging\EnterpriseLibraryLoggingManagerAdapter.cs" />
+    <Compile Include="Adapters\Mapping\AutoMapperAdapter.cs" />
+    <Compile Include="Builders\PropertyAssociationBuilder.cs" />
+    <Compile Include="C.cs" />
+    <Compile Include="DomainServices\AssignmentDomainService.cs" />
+    <Compile Include="DomainServices\BaseFileDomainService.cs" />
+    <Compile Include="DomainServices\AnswerDomainService.cs" />
+    <Compile Include="DomainServices\AnswerQuestionChoiceDomainService.cs" />
+    <Compile Include="DomainServices\BaseQuestionTopicDomainService.cs" />
+    <Compile Include="DomainServices\AssetDomainService.cs" />
+    <Compile Include="DomainServices\CourseRegistrationDomainService.cs" />
+    <Compile Include="DomainServices\DepartmentDomainService.cs" />
+    <Compile Include="DomainServices\ModuleQuizDomainService.cs" />
+    <Compile Include="DomainServices\TopicPostDomainService.cs" />
+    <Compile Include="DomainServices\TopicDomainService.cs" />
+    <Compile Include="DomainServices\DiscussionDomainService.cs" />
+    <Compile Include="DomainServices\ScheduleDomainService.cs" />
+    <Compile Include="DomainServices\QuestionChoiceDomainService.cs" />
+    <Compile Include="DomainServices\QuestionDomainService.cs" />
+    <Compile Include="DomainServices\QuizEntryDomainService.cs" />
+    <Compile Include="DomainServices\ModuleDomainService.cs" />
+    <Compile Include="DomainServices\QuizDomainService.cs" />
+    <Compile Include="DomainServices\VideoDomainService.cs" />
+    <Compile Include="DomainServices\SubmissionDomainService.cs" />
+    <Compile Include="DomainServices\UnitDomainService.cs" />
+    <Compile Include="DomainServices\FileDomainService.cs" />
+    <Compile Include="DomainServices\CourseDomainService.cs" />
+    <Compile Include="DomainServices\StaffDomainService.cs" />
+    <Compile Include="DomainServices\MessageDomainService.cs" />
+    <Compile Include="DomainServices\StudentViewedMessageDomainService.cs" />
+    <Compile Include="DomainServices\TaskDomainService.cs" />
+    <Compile Include="Entities\Assignment.cs" />
+    <Compile Include="Entities\BaseQuestionTopic.cs" />
+    <Compile Include="Entities\BaseTask.cs" />
+    <Compile Include="Entities\BaseFile.cs" />
+    <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Entities\AnswerQuestionChoice.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\Asset.cs" />
+    <Compile Include="Entities\Department.cs" />
+    <Compile Include="Entities\Image.cs" />
+    <Compile Include="Entities\Document.cs" />
+    <Compile Include="Entities\ModuleGrade.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Entities\TopicPost.cs" />
+    <Compile Include="Entities\Topic.cs" />
+    <Compile Include="Entities\Discussion.cs" />
+    <Compile Include="Entities\Schedule.cs" />
+    <Compile Include="Entities\Question.cs" />
+    <Compile Include="Entities\QuestionChoice.cs" />
+    <Compile Include="Entities\Quiz.cs" />
+    <Compile Include="Entities\ModuleQuiz.cs" />
+    <Compile Include="Entities\QuizEntry.cs" />
+    <Compile Include="Entities\Video.cs" />
+    <Compile Include="Entities\File.cs" />
+    <Compile Include="Entities\StaffCourse.cs" />
+    <Compile Include="Entities\Unit.cs" />
+    <Compile Include="Entities\Module.cs" />
+    <Compile Include="Entities\CourseModule.cs" />
+    <Compile Include="Entities\CourseRegistration.cs" />
+    <Compile Include="Entities\Course.cs" />
+    <Compile Include="Entities\Submission.cs" />
+    <Compile Include="Entities\UserGroup.cs" />
+    <Compile Include="Entities\Message.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Task.cs" />
+    <Compile Include="Entities\ViewedMessage.cs" />
+    <Compile Include="Entities\Membership.cs" />
+    <Compile Include="Entities\Group.cs" />
+    <Compile Include="Entities\Staff.cs" />
+    <Compile Include="Entities\Student.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Enums\AccreditationType.cs" />
+    <Compile Include="Enums\AssetTypeEnum.cs" />
+    <Compile Include="Enums\AssetUploadEnum.cs" />
+    <Compile Include="Enums\CompanyEnum.cs" />
+    <Compile Include="Enums\CourseTemplateEnum.cs" />
+    <Compile Include="Enums\QuestionQuizType.cs" />
+    <Compile Include="Enums\QuestionTopicStatusType.cs" />
+    <Compile Include="Enums\NavigationalProperties\ScheduleNavigationalProperty.cs" />
+    <Compile Include="Enums\QuizDisplayEndResultsOptions.cs" />
+    <Compile Include="Enums\StudentAssignmentFilterType.cs" />
+    <Compile Include="Enums\SubmissionStatusType.cs" />
+    <Compile Include="Enums\MessageType.cs" />
+    <Compile Include="Enums\ExceptionHandling\PolicyNameType.cs" />
+    <Compile Include="Enums\LoginType.cs" />
+    <Compile Include="Enums\NavigationalProperties\AlertNavigationalProperty.cs" />
+    <Compile Include="Enums\NavigationalProperties\GroupNavigationalProperty.cs" />
+    <Compile Include="Enums\NavigationalProperties\StaffNavigationalProperty.cs" />
+    <Compile Include="Enums\NavigationalProperties\StudentNavigationalProperty.cs" />
+    <Compile Include="Enums\PositionType.cs" />
+    <Compile Include="Enums\GenderType.cs" />
+    <Compile Include="Enums\Priority.cs" />
+    <Compile Include="Enums\TaskFilterType.cs" />
+    <Compile Include="Factories\Entity\FileFactory.cs" />
+    <Compile Include="Interfaces\Adapter\IFileManagerAdapter.cs" />
+    <Compile Include="Interfaces\Adapter\ICacheAdapter.cs" />
+    <Compile Include="Interfaces\Adapter\IEventLogServiceAdapter.cs" />
+    <Compile Include="Interfaces\Adapter\IExceptionManagerAdapter.cs" />
+    <Compile Include="Interfaces\Adapter\IObjectMapperAdapter.cs" />
+    <Compile Include="Interfaces\Adapter\IRoleAdapter.cs" />
+    <Compile Include="Interfaces\DomainService\ICourseRegistrationDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IDepartmentDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IModuleQuizDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IAssetDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IBaseQuestionTopicDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\ITopicPostDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\ITopicDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IDiscussionDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IScheduleDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IAnswerQuestionChoiceDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IAnswerDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IQuestionChoiceDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IQuestionDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IQuizEntryDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IModuleDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IQuizDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IVideoDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\ISubmissionDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IUnitDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IBaseFileDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IFileDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\ICourseDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IAssignmentDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IStudentViewedMessageDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\ITaskDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IMessageDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IStaffDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IMembershipDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\ITypeDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IUserDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IBaseDomainService.cs" />
+    <Compile Include="Interfaces\DomainService\IStudentDomainService.cs" />
+    <Compile Include="Interfaces\Repository\ICourseModuleRepository.cs" />
+    <Compile Include="Interfaces\Repository\ICourseRegistrationRepository.cs" />
+    <Compile Include="Interfaces\Repository\IDepartmentRepository.cs" />
+    <Compile Include="Interfaces\Repository\IModuleQuizRepository.cs" />
+    <Compile Include="Interfaces\Repository\IAssetRepository.cs" />
+    <Compile Include="Interfaces\Repository\IBaseQuestionTopicRepository.cs" />
+    <Compile Include="Interfaces\Repository\IStaffCourseRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITopicPostRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITopicRepository.cs" />
+    <Compile Include="Interfaces\Repository\IDiscussionRepository.cs" />
+    <Compile Include="Interfaces\Repository\IScheduleRepository.cs" />
+    <Compile Include="Interfaces\Repository\IAnswerQuestionChoiceRepository.cs" />
+    <Compile Include="Interfaces\Repository\IAnswerRepository.cs" />
+    <Compile Include="Interfaces\Repository\IQuestionChoiceRepository.cs" />
+    <Compile Include="Interfaces\Repository\IQuestionRepository.cs" />
+    <Compile Include="Interfaces\Repository\IQuizEntryRepository.cs" />
+    <Compile Include="Interfaces\Repository\IQuizRepository.cs" />
+    <Compile Include="Interfaces\Repository\IVideoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IModuleRepository.cs" />
+    <Compile Include="Interfaces\Repository\ISubmissionRepository.cs" />
+    <Compile Include="Interfaces\Repository\IUnitRepository.cs" />
+    <Compile Include="Interfaces\Repository\IBaseFileRepository.cs" />
+    <Compile Include="Interfaces\Repository\IFileRepository.cs" />
+    <Compile Include="Interfaces\Repository\ICourseRepository.cs" />
+    <Compile Include="Interfaces\Repository\IAssignmentRepository.cs" />
+    <Compile Include="Interfaces\Repository\IStaffRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITaskRepository.cs" />
+    <Compile Include="Interfaces\Repository\IMessageRepository.cs" />
+    <Compile Include="Interfaces\Repository\IMembershipRepository.cs" />
+    <Compile Include="Interfaces\Repository\IBaseRepository.cs" />
+    <Compile Include="Interfaces\Repository\IViewedMessageRepository.cs" />
+    <Compile Include="Interfaces\Repository\IStudentRepository.cs" />
+    <Compile Include="Interfaces\Repository\IUserRepository.cs" />
+    <Compile Include="DomainServices\BaseDomainService.cs" />
+    <Compile Include="DomainServices\TypeDomainService.cs" />
+    <Compile Include="DomainServices\MembershipDomainService.cs" />
+    <Compile Include="DomainServices\StudentDomainService.cs" />
+    <Compile Include="DomainServices\UserDomainService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\Strategy\" />
+    <Folder Include="Strategies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="EntityClassDiagram.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Cognite.Utility.csproj">
+      <Project>{EFC414CD-655B-4C58-9127-EDBBE536517C}</Project>
+      <Name>Cognite.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
