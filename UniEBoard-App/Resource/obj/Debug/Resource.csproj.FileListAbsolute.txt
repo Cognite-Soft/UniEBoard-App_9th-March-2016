@@ -1,0 +1,8 @@
+F:\UniEBoard-App\UniEBoard-App\Resource\bin\Debug\UniEBoard.Resource.dll
+F:\UniEBoard-App\UniEBoard-App\Resource\bin\Debug\UniEBoard.Resource.pdb
+F:\UniEBoard-App\UniEBoard-App\Resource\obj\Debug\UniEBoard.Resource.EntityDisplayNames.resources
+F:\UniEBoard-App\UniEBoard-App\Resource\obj\Debug\UniEBoard.Resource.ResourceCSSStyles.resources
+F:\UniEBoard-App\UniEBoard-App\Resource\obj\Debug\Resource.csproj.GenerateResource.Cache
+F:\UniEBoard-App\UniEBoard-App\Resource\obj\Debug\UniEBoard.Resource.dll
+F:\UniEBoard-App\UniEBoard-App\Resource\obj\Debug\UniEBoard.Resource.pdb
+F:\UniEBoard-App\UniEBoard-App\Resource\obj\Debug\Resource.csprojResolveAssemblyReference.cache

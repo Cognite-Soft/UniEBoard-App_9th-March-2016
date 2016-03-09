@@ -1,0 +1,1799 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniEBoardModel.Repository" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="UniEBoardDbContext" annotation:LazyLoadingEnabled="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="Accreditations" EntityType="UniEBoardModel.Repository.Accreditation" />
+    <EntitySet Name="Messages" EntityType="UniEBoardModel.Repository.Message" />
+    <EntitySet Name="Answers" EntityType="UniEBoardModel.Repository.Answer" />
+    <EntitySet Name="Assignments" EntityType="UniEBoardModel.Repository.Assignment" />
+    <EntitySet Name="CourseModules" EntityType="UniEBoardModel.Repository.CourseModule" />
+    <EntitySet Name="CourseRegistrations" EntityType="UniEBoardModel.Repository.CourseRegistration" />
+    <EntitySet Name="Courses" EntityType="UniEBoardModel.Repository.Course" />
+    <EntitySet Name="CourseTemplates" EntityType="UniEBoardModel.Repository.CourseTemplate" />
+    <EntitySet Name="Departments" EntityType="UniEBoardModel.Repository.Department" />
+    <EntitySet Name="BaseFiles" EntityType="UniEBoardModel.Repository.BaseFile" />
+    <EntitySet Name="Genders" EntityType="UniEBoardModel.Repository.Gender" />
+    <EntitySet Name="Groups" EntityType="UniEBoardModel.Repository.Group" />
+    <EntitySet Name="Memberships" EntityType="UniEBoardModel.Repository.Membership" />
+    <EntitySet Name="Permissions" EntityType="UniEBoardModel.Repository.Permission" />
+    <EntitySet Name="Positions" EntityType="UniEBoardModel.Repository.Position" />
+    <EntitySet Name="QuestionChoices" EntityType="UniEBoardModel.Repository.QuestionChoice" />
+    <EntitySet Name="Questions" EntityType="UniEBoardModel.Repository.Question" />
+    <EntitySet Name="QuizEntries" EntityType="UniEBoardModel.Repository.QuizEntry" />
+    <EntitySet Name="Quizs" EntityType="UniEBoardModel.Repository.Quiz" />
+    <EntitySet Name="RolePermissions" EntityType="UniEBoardModel.Repository.RolePermission" />
+    <EntitySet Name="Roles" EntityType="UniEBoardModel.Repository.Role" />
+    <EntitySet Name="StaffCourses" EntityType="UniEBoardModel.Repository.StaffCourse" />
+    <EntitySet Name="Submissions" EntityType="UniEBoardModel.Repository.Submission" />
+    <EntitySet Name="Tasks" EntityType="UniEBoardModel.Repository.Task" />
+    <EntitySet Name="Units" EntityType="UniEBoardModel.Repository.Unit" />
+    <EntitySet Name="Users" EntityType="UniEBoardModel.Repository.User" />
+    <AssociationSet Name="FK_AccreditationCourse" Association="UniEBoardModel.Repository.FK_AccreditationCourse">
+      <End Role="Accreditation" EntitySet="Accreditations" />
+      <End Role="Cours" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionAnswer" Association="UniEBoardModel.Repository.FK_QuestionAnswer">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssignmentSubmission" Association="UniEBoardModel.Repository.FK_AssignmentSubmission">
+      <End Role="Assignment" EntitySet="Assignments" />
+      <End Role="Submission" EntitySet="Submissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuizAssignment" Association="UniEBoardModel.Repository.FK_QuizAssignment">
+      <End Role="Quiz" EntitySet="Quizs" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseCourseModules" Association="UniEBoardModel.Repository.FK_CourseCourseModules">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="CourseModule" EntitySet="CourseModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseCourseRegistration" Association="UniEBoardModel.Repository.FK_CourseCourseRegistration">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="CourseRegistration" EntitySet="CourseRegistrations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentCourseRegistration" Association="UniEBoardModel.Repository.FK_StudentCourseRegistration">
+      <End Role="Student" EntitySet="Users" />
+      <End Role="CourseRegistration" EntitySet="CourseRegistrations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseStaffCourses" Association="UniEBoardModel.Repository.FK_CourseStaffCourses">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="StaffCours" EntitySet="StaffCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseTemplateCourse" Association="UniEBoardModel.Repository.FK_CourseTemplateCourse">
+      <End Role="CourseTemplate" EntitySet="CourseTemplates" />
+      <End Role="Cours" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GenderUser" Association="UniEBoardModel.Repository.FK_GenderUser">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserMembership" Association="UniEBoardModel.Repository.FK_UserMembership">
+      <End Role="Membership" EntitySet="Memberships" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermissionsPermission" Association="UniEBoardModel.Repository.FK_RolePermissionsPermission">
+      <End Role="Permission" EntitySet="Permissions" />
+      <End Role="RolePermission" EntitySet="RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PositionStaff" Association="UniEBoardModel.Repository.FK_PositionStaff">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="Staff" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionQuestionOptions" Association="UniEBoardModel.Repository.FK_QuestionQuestionOptions">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="QuestionChoice" EntitySet="QuestionChoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuizQuestion" Association="UniEBoardModel.Repository.FK_QuizQuestion">
+      <End Role="Quiz" EntitySet="Quizs" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuizQuizEntry" Association="UniEBoardModel.Repository.FK_QuizQuizEntry">
+      <End Role="Quiz" EntitySet="Quizs" />
+      <End Role="QuizEntry" EntitySet="QuizEntries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentQuizEntry" Association="UniEBoardModel.Repository.FK_StudentQuizEntry">
+      <End Role="Student" EntitySet="Users" />
+      <End Role="QuizEntry" EntitySet="QuizEntries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleRolePermissions" Association="UniEBoardModel.Repository.FK_RoleRolePermissions">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RolePermission" EntitySet="RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffStaffCourses" Association="UniEBoardModel.Repository.FK_StaffStaffCourses">
+      <End Role="Staff" EntitySet="Users" />
+      <End Role="StaffCours" EntitySet="StaffCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffUnit" Association="UniEBoardModel.Repository.FK_StaffUnit">
+      <End EntitySet="Users" Role="Staff" />
+      <End EntitySet="Units" Role="Unit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentSubmission" Association="UniEBoardModel.Repository.FK_StudentSubmission">
+      <End Role="Student" EntitySet="Users" />
+      <End Role="Submission" EntitySet="Submissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTask" Association="UniEBoardModel.Repository.FK_UserTask">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="UserPermission" Association="UniEBoardModel.Repository.UserPermission">
+      <End Role="Permission" EntitySet="Permissions" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserRole" Association="UniEBoardModel.Repository.UserRole">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="ViewedMessages" EntityType="UniEBoardModel.Repository.ViewedMessage" />
+    <AssociationSet Name="UserMessage" Association="UniEBoardModel.Repository.UserMessage">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="UserMessage1" Association="UniEBoardModel.Repository.UserMessage1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="UserStudentViewedAlerts" Association="UniEBoardModel.Repository.UserStudentViewedAlerts">
+      <End Role="User" EntitySet="Users" />
+      <End Role="StudentViewedAlerts" EntitySet="ViewedMessages" />
+    </AssociationSet>
+    <AssociationSet Name="MessageViewedMessage" Association="UniEBoardModel.Repository.MessageViewedMessage">
+      <End Role="Message" EntitySet="Messages" />
+      <End Role="ViewedMessage" EntitySet="ViewedMessages" />
+    </AssociationSet>
+    <AssociationSet Name="StaffGroup" Association="UniEBoardModel.Repository.StaffGroup">
+      <End Role="Staff" EntitySet="Users" />
+      <End Role="Group" EntitySet="Groups" />
+    </AssociationSet>
+    <EntitySet Name="UserGroups" EntityType="UniEBoardModel.Repository.UserGroup" />
+    <AssociationSet Name="UserUserGroup" Association="UniEBoardModel.Repository.UserUserGroup">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserGroup" EntitySet="UserGroups" />
+    </AssociationSet>
+    <AssociationSet Name="GroupUserGroup" Association="UniEBoardModel.Repository.GroupUserGroup">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="UserGroup" EntitySet="UserGroups" />
+    </AssociationSet>
+    <EntitySet Name="GroupMessages" EntityType="UniEBoardModel.Repository.GroupMessage" />
+    <AssociationSet Name="GroupGroupMessage" Association="UniEBoardModel.Repository.GroupGroupMessage">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="GroupMessage" EntitySet="GroupMessages" />
+    </AssociationSet>
+    <AssociationSet Name="MessageGroupMessage" Association="UniEBoardModel.Repository.MessageGroupMessage">
+      <End Role="Message" EntitySet="Messages" />
+      <End Role="GroupMessage" EntitySet="GroupMessages" />
+    </AssociationSet>
+    <AssociationSet Name="CourseAssignment" Association="UniEBoardModel.Repository.CourseAssignment">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="UnitAssignment" Association="UniEBoardModel.Repository.UnitAssignment">
+      <End EntitySet="Units" Role="Unit" />
+      <End EntitySet="Assignments" Role="Assignment" />
+    </AssociationSet>
+    <AssociationSet Name="SubmissionFileUpload" Association="UniEBoardModel.Repository.SubmissionFileUpload">
+      <End Role="Submission" EntitySet="Submissions" />
+      <End Role="FileUpload" EntitySet="BaseFiles" />
+    </AssociationSet>
+    <AssociationSet Name="AssignmentFileUpload" Association="UniEBoardModel.Repository.AssignmentFileUpload">
+      <End Role="Assignment" EntitySet="Assignments" />
+      <End Role="FileUpload" EntitySet="BaseFiles" />
+    </AssociationSet>
+    <AssociationSet Name="QuizEntryAnswer" Association="UniEBoardModel.Repository.QuizEntryAnswer">
+      <End Role="QuizEntry" EntitySet="QuizEntries" />
+      <End Role="Answer" EntitySet="Answers" />
+    </AssociationSet>
+    <EntitySet Name="ModuleQuizs" EntityType="UniEBoardModel.Repository.ModuleQuiz" />
+    <AssociationSet Name="QuizModuleQuiz" Association="UniEBoardModel.Repository.QuizModuleQuiz">
+      <End Role="Quiz" EntitySet="Quizs" />
+      <End Role="ModuleQuiz" EntitySet="ModuleQuizs" />
+    </AssociationSet>
+    <EntitySet Name="AnswerQuestionChoices" EntityType="UniEBoardModel.Repository.AnswerQuestionChoice" />
+    <AssociationSet Name="QuestionChoiceAnswerQuestionChoice" Association="UniEBoardModel.Repository.QuestionChoiceAnswerQuestionChoice">
+      <End Role="QuestionChoice" EntitySet="QuestionChoices" />
+      <End Role="AnswerQuestionChoice" EntitySet="AnswerQuestionChoices" />
+    </AssociationSet>
+    <AssociationSet Name="AnswerAnswerQuestionChoice" Association="UniEBoardModel.Repository.AnswerAnswerQuestionChoice">
+      <End Role="Answer" EntitySet="Answers" />
+      <End Role="AnswerQuestionChoice" EntitySet="AnswerQuestionChoices" />
+    </AssociationSet>
+    <EntitySet Name="Schedules" EntityType="UniEBoardModel.Repository.Schedule" />
+    <AssociationSet Name="CourseSchedule" Association="UniEBoardModel.Repository.CourseSchedule">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Schedule" EntitySet="Schedules" />
+    </AssociationSet>
+    <AssociationSet Name="UnitSchedule" Association="UniEBoardModel.Repository.UnitSchedule">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Schedule" EntitySet="Schedules" />
+    </AssociationSet>
+    <EntitySet Name="TopicPosts" EntityType="UniEBoardModel.Repository.TopicPost" />
+    <AssociationSet Name="UserTopicPost" Association="UniEBoardModel.Repository.UserTopicPost">
+      <End Role="User" EntitySet="Users" />
+      <End Role="TopicPost" EntitySet="TopicPosts" />
+    </AssociationSet>
+    <AssociationSet Name="TopicPostTopicPost" Association="UniEBoardModel.Repository.TopicPostTopicPost">
+      <End Role="TopicPost" EntitySet="TopicPosts" />
+      <End Role="TopicPost1" EntitySet="TopicPosts" />
+    </AssociationSet>
+    <EntitySet Name="BaseQuestionTopics" EntityType="UniEBoardModel.Repository.BaseQuestionTopic" />
+    <AssociationSet Name="TopicTopicPost" Association="UniEBoardModel.Repository.TopicTopicPost">
+      <End Role="Topic" EntitySet="BaseQuestionTopics" />
+      <End Role="TopicPost" EntitySet="TopicPosts" />
+    </AssociationSet>
+    <AssociationSet Name="UserBaseQuestionTopic" Association="UniEBoardModel.Repository.UserBaseQuestionTopic">
+      <End Role="User" EntitySet="Users" />
+      <End Role="BaseQuestionTopic" EntitySet="BaseQuestionTopics" />
+    </AssociationSet>
+    <EntitySet Name="Companies" EntityType="UniEBoardModel.Repository.Company" />
+    <EntitySet Name="Contacts" EntityType="UniEBoardModel.Repository.Contact" />
+    <AssociationSet Name="CompanyContact" Association="UniEBoardModel.Repository.CompanyContact">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentCourse" Association="UniEBoardModel.Repository.DepartmentCourse">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyUser" Association="UniEBoardModel.Repository.CompanyUser">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyCourse" Association="UniEBoardModel.Repository.CompanyCourse">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentStaff" Association="UniEBoardModel.Repository.DepartmentStaff">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Staff" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Assets" EntityType="UniEBoardModel.Repository.Asset" />
+    <EntitySet Name="Tags" EntityType="UniEBoardModel.Repository.Tag" />
+    <AssociationSet Name="TagAsset" Association="UniEBoardModel.Repository.TagAsset">
+      <End Role="Tag" EntitySet="Tags" />
+      <End Role="Asset" EntitySet="Assets" />
+    </AssociationSet>
+    <AssociationSet Name="CompanyAsset" Association="UniEBoardModel.Repository.CompanyAsset">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Asset" EntitySet="Assets" />
+    </AssociationSet>
+    <AssociationSet Name="UnitVideo" Association="UniEBoardModel.Repository.UnitVideo">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Video" EntitySet="Assets" />
+    </AssociationSet>
+    <AssociationSet Name="UnitDocument" Association="UniEBoardModel.Repository.UnitDocument">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Document" EntitySet="Assets" />
+    </AssociationSet>
+    <EntitySet Name="Modules" EntityType="UniEBoardModel.Repository.Module" />
+    <AssociationSet Name="FK_ModuleAssignment" Association="UniEBoardModel.Repository.FK_ModuleAssignment">
+      <End Role="Module" EntitySet="Modules" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModuleCourseModules" Association="UniEBoardModel.Repository.FK_ModuleCourseModules">
+      <End Role="Module" EntitySet="Modules" />
+      <End Role="CourseModule" EntitySet="CourseModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModuleModuleQuiz" Association="UniEBoardModel.Repository.FK_ModuleModuleQuiz">
+      <End Role="Module" EntitySet="Modules" />
+      <End Role="ModuleQuiz" EntitySet="ModuleQuizs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ModuleUnit" Association="UniEBoardModel.Repository.FK_ModuleUnit">
+      <End Role="Module" EntitySet="Modules" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StaffModule" Association="UniEBoardModel.Repository.FK_StaffModule">
+      <End Role="Staff" EntitySet="Users" />
+      <End Role="Module" EntitySet="Modules" />
+    </AssociationSet>
+    <EntitySet Name="Discussions" EntityType="UniEBoardModel.Repository.Discussion" />
+    <AssociationSet Name="FK_DiscussionTopic" Association="UniEBoardModel.Repository.FK_DiscussionTopic">
+      <End Role="Discussion" EntitySet="Discussions" />
+      <End Role="Topic" EntitySet="BaseQuestionTopics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseDiscussion" Association="UniEBoardModel.Repository.FK_CourseDiscussion">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Discussion" EntitySet="Discussions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TopicPostDiscussion" Association="UniEBoardModel.Repository.FK_TopicPostDiscussion">
+      <End Role="TopicPost" EntitySet="TopicPosts" />
+      <End Role="Discussion" EntitySet="Discussions" />
+    </AssociationSet>
+    <EntitySet Name="Assets_WebPage" EntityType="UniEBoardModel.Repository.Assets_WebPage" />
+    <EntitySet Name="sysdiagrams" EntityType="UniEBoardModel.Repository.sysdiagram" />
+    <EntitySet Name="webpages_Membership" EntityType="UniEBoardModel.Repository.webpages_Membership" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="UniEBoardModel.Repository.webpages_OAuthMembership" />
+    <EntitySet Name="webpages_Roles" EntityType="UniEBoardModel.Repository.webpages_Roles" />
+    <AssociationSet Name="FK_Assets_WebPage_Assets" Association="UniEBoardModel.Repository.FK_Assets_WebPage_Assets">
+      <End Role="Asset" EntitySet="Assets" />
+      <End Role="Assets_WebPage" EntitySet="Assets_WebPage" />
+    </AssociationSet>
+    <AssociationSet Name="webpages_UsersInRoles" Association="UniEBoardModel.Repository.webpages_UsersInRoles">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="Membership" EntitySet="Memberships" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(UniEBoardModel.Repository.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(UniEBoardModel.Repository.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <AssociationSet Name="UnitAsset" Association="UniEBoardModel.Repository.UnitAsset">
+      <End Role="Asset" EntitySet="Assets" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuizUnit" Association="UniEBoardModel.Repository.FK_QuizUnit">
+      <End Role="Quiz" EntitySet="Quizs" />
+      <End Role="Unit" EntitySet="Units" />
+    </AssociationSet>
+    <AssociationSet Name="AssignmentAsset" Association="UniEBoardModel.Repository.AssignmentAsset">
+      <End Role="Asset" EntitySet="Assets" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Accreditation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Courses" Relationship="UniEBoardModel.Repository.FK_AccreditationCourse" FromRole="Accreditation" ToRole="Cours" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="Int32" Name="MessageType" Nullable="false" />
+    <NavigationProperty Name="FromUser" Relationship="UniEBoardModel.Repository.UserMessage" FromRole="Message" ToRole="User" />
+    <Property Type="Int32" Name="FromUserId" Nullable="false" />
+    <NavigationProperty Name="RecipientUser" Relationship="UniEBoardModel.Repository.UserMessage1" FromRole="Message" ToRole="User" />
+    <Property Type="Int32" Name="RecipientUserId" Nullable="true" />
+    <NavigationProperty Name="ViewedMessages" Relationship="UniEBoardModel.Repository.MessageViewedMessage" FromRole="Message" ToRole="ViewedMessage" />
+    <Property Type="String" Name="Comments" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="GroupMessages" Relationship="UniEBoardModel.Repository.MessageGroupMessage" FromRole="Message" ToRole="GroupMessage" />
+    <Property Type="Int32" Name="EntityId" />
+    <Property Type="Boolean" Name="MessageViewed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="Question_Id" Nullable="false" />
+    <NavigationProperty Name="Question" Relationship="UniEBoardModel.Repository.FK_QuestionAnswer" FromRole="Answer" ToRole="Question" />
+    <NavigationProperty Name="QuizEntry" Relationship="UniEBoardModel.Repository.QuizEntryAnswer" FromRole="Answer" ToRole="QuizEntry" />
+    <Property Type="Int32" Name="QuizEntryId" Nullable="false" />
+    <NavigationProperty Name="AnswerQuestionChoices" Relationship="UniEBoardModel.Repository.AnswerAnswerQuestionChoice" FromRole="Answer" ToRole="AnswerQuestionChoice" />
+  </EntityType>
+  <EntityType Name="Assignment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="DateTime" Name="Deadline" Nullable="false" />
+    <Property Type="DateTime" Name="PublishFrom" Nullable="false" />
+    <Property Type="DateTime" Name="PublishTo" Nullable="false" />
+    <Property Type="Int32" Name="QuizId" />
+    <NavigationProperty Name="Submissions" Relationship="UniEBoardModel.Repository.FK_AssignmentSubmission" FromRole="Assignment" ToRole="Submission" />
+    <NavigationProperty Name="Quiz" Relationship="UniEBoardModel.Repository.FK_QuizAssignment" FromRole="Assignment" ToRole="Quiz" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Instructions" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <NavigationProperty Name="Course" Relationship="UniEBoardModel.Repository.CourseAssignment" FromRole="Assignment" ToRole="Course" />
+    <Property Type="Int32" Name="CourseId" Nullable="true" />
+    <Property Type="Int32" Name="ModuleId" Nullable="true" />
+    <NavigationProperty Name="Unit" Relationship="UniEBoardModel.Repository.UnitAssignment" FromRole="Assignment" ToRole="Unit" />
+    <Property Type="Int32" Name="UnitId" Nullable="true" />
+    <NavigationProperty Name="FileUploads" Relationship="UniEBoardModel.Repository.AssignmentFileUpload" FromRole="Assignment" ToRole="FileUpload" />
+    <Property Type="Int32" Name="PointsPossible" Nullable="true" />
+    <NavigationProperty Name="Module" Relationship="UniEBoardModel.Repository.FK_ModuleAssignment" FromRole="Assignment" ToRole="Module" />
+    <NavigationProperty Name="Assets" Relationship="UniEBoardModel.Repository.AssignmentAsset" FromRole="Assignment" ToRole="Asset" />
+  </EntityType>
+  <EntityType Name="CourseModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="Course_Id" Nullable="false" />
+    <Property Type="Int32" Name="Module_Id" Nullable="false" />
+    <NavigationProperty Name="Course" Relationship="UniEBoardModel.Repository.FK_CourseCourseModules" FromRole="CourseModule" ToRole="Cours" />
+    <NavigationProperty Name="Module" Relationship="UniEBoardModel.Repository.FK_ModuleCourseModules" FromRole="CourseModule" ToRole="Module" />
+  </EntityType>
+  <EntityType Name="CourseRegistration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="DateTime" Name="EffectiveFrom" Nullable="true" />
+    <Property Type="DateTime" Name="EffectiveTo" Nullable="true" />
+    <Property Type="Int32" Name="Student_Id" Nullable="false" />
+    <Property Type="Int32" Name="Course_Id" Nullable="false" />
+    <NavigationProperty Name="Course" Relationship="UniEBoardModel.Repository.FK_CourseCourseRegistration" FromRole="CourseRegistration" ToRole="Cours" />
+    <NavigationProperty Name="Student" Relationship="UniEBoardModel.Repository.FK_StudentCourseRegistration" FromRole="CourseRegistration" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Overview" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Length" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PublishFrom" />
+    <Property Type="DateTime" Name="PublishTo" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="Boolean" Name="Approved" Nullable="false" />
+    <Property Type="Int32" Name="Accreditation_Id" Nullable="false" />
+    <Property Type="Int32" Name="CourseTemplate_Id" Nullable="false" />
+    <NavigationProperty Name="Accreditation" Relationship="UniEBoardModel.Repository.FK_AccreditationCourse" FromRole="Cours" ToRole="Accreditation" />
+    <NavigationProperty Name="CourseModules" Relationship="UniEBoardModel.Repository.FK_CourseCourseModules" FromRole="Cours" ToRole="CourseModule" />
+    <NavigationProperty Name="CourseRegistrations" Relationship="UniEBoardModel.Repository.FK_CourseCourseRegistration" FromRole="Cours" ToRole="CourseRegistration" />
+    <NavigationProperty Name="StaffCourses" Relationship="UniEBoardModel.Repository.FK_CourseStaffCourses" FromRole="Cours" ToRole="StaffCours" />
+    <NavigationProperty Name="CourseTemplate" Relationship="UniEBoardModel.Repository.FK_CourseTemplateCourse" FromRole="Cours" ToRole="CourseTemplate" />
+    <NavigationProperty Name="Assignments" Relationship="UniEBoardModel.Repository.CourseAssignment" FromRole="Course" ToRole="Assignment" />
+    <NavigationProperty Name="Schedules" Relationship="UniEBoardModel.Repository.CourseSchedule" FromRole="Course" ToRole="Schedule" />
+    <NavigationProperty Name="Department" Relationship="UniEBoardModel.Repository.DepartmentCourse" FromRole="Course" ToRole="Department" />
+    <Property Type="Int32" Name="DepartmentId" Nullable="true" />
+    <NavigationProperty Name="Company" Relationship="UniEBoardModel.Repository.CompanyCourse" FromRole="Course" ToRole="Company" />
+    <Property Type="Int32" Name="CompanyId" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="SortOrder" />
+    <Property Type="Int32" Name="OwnerId" />
+    <NavigationProperty Name="Discussions" Relationship="UniEBoardModel.Repository.FK_CourseDiscussion" FromRole="Course" ToRole="Discussion" />
+  </EntityType>
+  <EntityType Name="CourseTemplate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Courses" Relationship="UniEBoardModel.Repository.FK_CourseTemplateCourse" FromRole="CourseTemplate" ToRole="Cours" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Courses" Relationship="UniEBoardModel.Repository.DepartmentCourse" FromRole="Department" ToRole="Course" />
+    <NavigationProperty Name="Staffs" Relationship="UniEBoardModel.Repository.DepartmentStaff" FromRole="Department" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="BaseFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="FileName" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Submission" Relationship="UniEBoardModel.Repository.SubmissionFileUpload" FromRole="FileUpload" ToRole="Submission" />
+    <Property Type="Int32" Name="SubmissionId" Nullable="true" />
+    <NavigationProperty Name="Assignment" Relationship="UniEBoardModel.Repository.AssignmentFileUpload" FromRole="FileUpload" ToRole="Assignment" />
+    <Property Type="Int32" Name="AssignmentId" Nullable="true" />
+    <Property Type="String" Name="Extension" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="DateCreated" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="FilePath" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Guid" Name="IdentityToken" Nullable="false" annotation:StoreGeneratedPattern="Computed" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="UnitId" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="UniEBoardModel.Repository.FK_GenderUser" FromRole="Gender" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Staff" Relationship="UniEBoardModel.Repository.StaffGroup" FromRole="Group" ToRole="Staff" />
+    <Property Type="Int32" Name="AssignedStaffId" Nullable="false" />
+    <NavigationProperty Name="UserGroups" Relationship="UniEBoardModel.Repository.GroupUserGroup" FromRole="Group" ToRole="UserGroup" />
+    <NavigationProperty Name="GroupMessages" Relationship="UniEBoardModel.Repository.GroupGroupMessage" FromRole="Group" ToRole="GroupMessage" />
+  </EntityType>
+  <EntityType Name="Membership">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="UniEBoardModel.Repository.FK_UserMembership" FromRole="Membership" ToRole="User" />
+    <NavigationProperty Name="webpages_Roles" Relationship="UniEBoardModel.Repository.webpages_UsersInRoles" FromRole="Membership" ToRole="webpages_Roles" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RolePermissions" Relationship="UniEBoardModel.Repository.FK_RolePermissionsPermission" FromRole="Permission" ToRole="RolePermission" />
+    <NavigationProperty Name="Users" Relationship="UniEBoardModel.Repository.UserPermission" FromRole="Permission" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Staffs" Relationship="UniEBoardModel.Repository.FK_PositionStaff" FromRole="Position" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="QuestionChoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="PointsValue" Nullable="false" />
+    <Property Type="Int16" Name="DisplayOrder" Nullable="false" />
+    <Property Type="Boolean" Name="CorrectAnswer" Nullable="false" />
+    <Property Type="Int32" Name="Question_Id" Nullable="false" />
+    <NavigationProperty Name="Question" Relationship="UniEBoardModel.Repository.FK_QuestionQuestionOptions" FromRole="QuestionChoice" ToRole="Question" />
+    <NavigationProperty Name="AnswerQuestionChoices" Relationship="UniEBoardModel.Repository.QuestionChoiceAnswerQuestionChoice" FromRole="QuestionChoice" ToRole="AnswerQuestionChoice" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="AllowMultipleSelections" Nullable="false" />
+    <Property Type="String" Name="HelpText" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Type="Int32" Name="Quiz_Id" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="UniEBoardModel.Repository.FK_QuestionAnswer" FromRole="Question" ToRole="Answer" />
+    <NavigationProperty Name="QuestionChoices" Relationship="UniEBoardModel.Repository.FK_QuestionQuestionOptions" FromRole="Question" ToRole="QuestionChoice" />
+    <NavigationProperty Name="Quiz" Relationship="UniEBoardModel.Repository.FK_QuizQuestion" FromRole="Question" ToRole="Quiz" />
+    <Property Type="Int32" Name="QuestionType_Id" Nullable="false" />
+    <Property Type="String" Name="Explanation" MaxLength="Max" Unicode="true" FixedLength="false" Nullable="true" />
+    <Property Type="Int32" Name="SortOrder" />
+  </EntityType>
+  <EntityType Name="QuizEntry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="Student_Id" Nullable="false" />
+    <Property Type="Int32" Name="Quiz_Id" Nullable="false" />
+    <NavigationProperty Name="Quiz" Relationship="UniEBoardModel.Repository.FK_QuizQuizEntry" FromRole="QuizEntry" ToRole="Quiz" />
+    <NavigationProperty Name="Student" Relationship="UniEBoardModel.Repository.FK_StudentQuizEntry" FromRole="QuizEntry" ToRole="Student" />
+    <NavigationProperty Name="Answers" Relationship="UniEBoardModel.Repository.QuizEntryAnswer" FromRole="QuizEntry" ToRole="Answer" />
+    <Property Type="Int32" Name="QuizResult" />
+  </EntityType>
+  <EntityType Name="Quiz">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PublishFrom" Nullable="false" />
+    <Property Type="DateTime" Name="PublishTo" Nullable="false" />
+    <Property Type="Int32" Name="MaxAttemptsAllowed" Nullable="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Type="Int32" Name="DisplayEndResults" Nullable="false" />
+    <Property Type="Boolean" Name="CorrectUserChoices" Nullable="false" />
+    <NavigationProperty Name="Assignments" Relationship="UniEBoardModel.Repository.FK_QuizAssignment" FromRole="Quiz" ToRole="Assignment" />
+    <NavigationProperty Name="Questions" Relationship="UniEBoardModel.Repository.FK_QuizQuestion" FromRole="Quiz" ToRole="Question" />
+    <NavigationProperty Name="QuizEntries" Relationship="UniEBoardModel.Repository.FK_QuizQuizEntry" FromRole="Quiz" ToRole="QuizEntry" />
+    <NavigationProperty Name="ModuleQuizs" Relationship="UniEBoardModel.Repository.QuizModuleQuiz" FromRole="Quiz" ToRole="ModuleQuiz" />
+    <Property Type="String" Name="Instructions" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="DateTime" Name="Deadline" Nullable="true" />
+    <NavigationProperty Name="Units" Relationship="UniEBoardModel.Repository.FK_QuizUnit" FromRole="Quiz" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="Permissions_Id" Nullable="false" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <NavigationProperty Name="Permission" Relationship="UniEBoardModel.Repository.FK_RolePermissionsPermission" FromRole="RolePermission" ToRole="Permission" />
+    <NavigationProperty Name="Role" Relationship="UniEBoardModel.Repository.FK_RoleRolePermissions" FromRole="RolePermission" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RolePermissions" Relationship="UniEBoardModel.Repository.FK_RoleRolePermissions" FromRole="Role" ToRole="RolePermission" />
+    <NavigationProperty Name="Users" Relationship="UniEBoardModel.Repository.UserRole" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="StaffCourse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="DateTime" Name="EffectiveFrom" Nullable="true" />
+    <Property Type="DateTime" Name="EffectiveTo" Nullable="true" />
+    <Property Type="Int32" Name="Staff_Id" Nullable="false" />
+    <Property Type="Int32" Name="Course_Id" Nullable="false" />
+    <Property Type="DateTime" Name="DateCreated" />
+    <Property Type="String" Name="Location" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Course" Relationship="UniEBoardModel.Repository.FK_CourseStaffCourses" FromRole="StaffCours" ToRole="Cours" />
+    <NavigationProperty Name="Staff" Relationship="UniEBoardModel.Repository.FK_StaffStaffCourses" FromRole="StaffCours" ToRole="Staff" />
+  </EntityType>
+  <EntityType Name="Staff" BaseType="UniEBoardModel.Repository.User">
+    <Property Type="Int32" Name="Position_Id" Nullable="false" />
+    <NavigationProperty Name="Position" Relationship="UniEBoardModel.Repository.FK_PositionStaff" FromRole="Staff" ToRole="Position" />
+    <NavigationProperty Name="StaffCourses" Relationship="UniEBoardModel.Repository.FK_StaffStaffCourses" FromRole="Staff" ToRole="StaffCours" />
+    <NavigationProperty Name="Units" Relationship="UniEBoardModel.Repository.FK_StaffUnit" FromRole="Staff" ToRole="Unit" />
+    <NavigationProperty Name="Groups_1" Relationship="UniEBoardModel.Repository.StaffGroup" FromRole="Staff" ToRole="Group" />
+    <NavigationProperty Name="Department" Relationship="UniEBoardModel.Repository.DepartmentStaff" FromRole="Staff" ToRole="Department" />
+    <Property Type="Int32" Name="DepartmentId" Nullable="true" />
+    <NavigationProperty Name="Modules" Relationship="UniEBoardModel.Repository.FK_StaffModule" FromRole="Staff" ToRole="Module" />
+  </EntityType>
+  <EntityType Name="Student" BaseType="UniEBoardModel.Repository.User">
+    <Property Type="String" Name="StudentNumber" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CourseRegistrations" Relationship="UniEBoardModel.Repository.FK_StudentCourseRegistration" FromRole="Student" ToRole="CourseRegistration" />
+    <NavigationProperty Name="QuizEntries" Relationship="UniEBoardModel.Repository.FK_StudentQuizEntry" FromRole="Student" ToRole="QuizEntry" />
+    <NavigationProperty Name="Submissions" Relationship="UniEBoardModel.Repository.FK_StudentSubmission" FromRole="Student" ToRole="Submission" />
+  </EntityType>
+  <EntityType Name="Submission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Title" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Type="String" Name="Body" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Type="String" Name="DateSubmitted" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="StudentId" Nullable="false" />
+    <Property Type="Int32" Name="AssignmentId" Nullable="false" />
+    <NavigationProperty Name="Assignment" Relationship="UniEBoardModel.Repository.FK_AssignmentSubmission" FromRole="Submission" ToRole="Assignment" />
+    <NavigationProperty Name="Student" Relationship="UniEBoardModel.Repository.FK_StudentSubmission" FromRole="Submission" ToRole="Student" />
+    <NavigationProperty Name="FileUploads" Relationship="UniEBoardModel.Repository.SubmissionFileUpload" FromRole="Submission" ToRole="FileUpload" />
+    <Property Type="Int32" Name="GradePointValue" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
+    <Property Type="DateTime" Name="Deadline" Nullable="true" />
+    <Property Type="Boolean" Name="IsCompleted" Nullable="false" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="UniEBoardModel.Repository.FK_UserTask" FromRole="Task" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PublishFrom" Type="DateTime" />
+    <Property Name="PublishTo" Type="DateTime" />
+    <Property Name="StaffId" Nullable="false" Type="Int32" />
+    <Property Name="ModuleId" Type="Int32" Nullable="true" />
+    <NavigationProperty Name="CreatedByStaff" Relationship="UniEBoardModel.Repository.FK_StaffUnit" FromRole="Unit" ToRole="Staff" />
+    <NavigationProperty Name="Assignments" Relationship="UniEBoardModel.Repository.UnitAssignment" FromRole="Unit" ToRole="Assignment" />
+    <NavigationProperty Name="Schedules" Relationship="UniEBoardModel.Repository.UnitSchedule" FromRole="Unit" ToRole="Schedule" />
+    <NavigationProperty Name="Video" Relationship="UniEBoardModel.Repository.UnitVideo" FromRole="Unit" ToRole="Video" />
+    <Property Type="Int32" Name="VideoId" Nullable="true" />
+    <NavigationProperty Name="Document" Relationship="UniEBoardModel.Repository.UnitDocument" FromRole="Unit" ToRole="Document" />
+    <Property Type="Int32" Name="DocumentId" Nullable="true" />
+    <NavigationProperty Name="Module" Relationship="UniEBoardModel.Repository.FK_ModuleUnit" FromRole="Unit" ToRole="Module" />
+    <Property Type="Int32" Name="AssignmentId" />
+    <Property Type="Int32" Name="SortOrder" />
+    <Property Type="Int32" Name="QuizId" />
+    <Property Type="Double" Name="Duration" />
+    <NavigationProperty Name="Assets" Relationship="UniEBoardModel.Repository.UnitAsset" FromRole="Unit" ToRole="Asset" />
+    <NavigationProperty Name="Quiz" Relationship="UniEBoardModel.Repository.FK_QuizUnit" FromRole="Unit" ToRole="Quiz" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+    <Property Type="Int32" Name="UserGender" Nullable="false" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="String" Name="Mobile" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="AccountDisabled" Nullable="false" />
+    <Property Type="Int32" Name="Membership_Id" Nullable="false" />
+    <NavigationProperty Name="Gender" Relationship="UniEBoardModel.Repository.FK_GenderUser" FromRole="User" ToRole="Gender" />
+    <NavigationProperty Name="Membership" Relationship="UniEBoardModel.Repository.FK_UserMembership" FromRole="User" ToRole="Membership" />
+    <NavigationProperty Name="Tasks" Relationship="UniEBoardModel.Repository.FK_UserTask" FromRole="User" ToRole="Task" />
+    <NavigationProperty Name="Permissions" Relationship="UniEBoardModel.Repository.UserPermission" FromRole="User" ToRole="Permission" />
+    <NavigationProperty Name="Roles" Relationship="UniEBoardModel.Repository.UserRole" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="CreatedMessages" Relationship="UniEBoardModel.Repository.UserMessage" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="ReceivedMessages" Relationship="UniEBoardModel.Repository.UserMessage1" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="UserViewedMessages" Relationship="UniEBoardModel.Repository.UserStudentViewedAlerts" FromRole="User" ToRole="StudentViewedAlerts" />
+    <NavigationProperty Name="UserGroups" Relationship="UniEBoardModel.Repository.UserUserGroup" FromRole="User" ToRole="UserGroup" />
+    <NavigationProperty Name="PostedTopicPosts" Relationship="UniEBoardModel.Repository.UserTopicPost" FromRole="User" ToRole="TopicPost" />
+    <NavigationProperty Name="CreatedBaseQuestionTopics" Relationship="UniEBoardModel.Repository.UserBaseQuestionTopic" FromRole="User" ToRole="BaseQuestionTopic" />
+    <NavigationProperty Name="Company" Relationship="UniEBoardModel.Repository.CompanyUser" FromRole="User" ToRole="Company" />
+    <Property Type="Int32" Name="CompanyId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Video" BaseType="UniEBoardModel.Repository.Asset">
+    <Property Type="String" Name="AlternatePath" FixedLength="false" MaxLength="200" Unicode="true" Nullable="true" />
+    <NavigationProperty Name="Units" Relationship="UniEBoardModel.Repository.UnitVideo" FromRole="Video" ToRole="Unit" />
+    <Property Type="String" Name="AlternateContentType" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_AccreditationCourse">
+    <End Type="UniEBoardModel.Repository.Accreditation" Role="Accreditation" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Course" Role="Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accreditation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="Accreditation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionAnswer">
+    <End Type="UniEBoardModel.Repository.Question" Role="Question" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Answer" Role="Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="Question_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssignmentSubmission">
+    <End Type="UniEBoardModel.Repository.Assignment" Role="Assignment" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Submission" Role="Submission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Assignment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Submission">
+        <PropertyRef Name="AssignmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuizAssignment">
+    <End Type="UniEBoardModel.Repository.Quiz" Role="Quiz" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Assignment" Role="Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseCourseModules">
+    <End Type="UniEBoardModel.Repository.Course" Role="Cours" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.CourseModule" Role="CourseModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseModule">
+        <PropertyRef Name="Course_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseCourseRegistration">
+    <End Type="UniEBoardModel.Repository.Course" Role="Cours" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.CourseRegistration" Role="CourseRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseRegistration">
+        <PropertyRef Name="Course_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentCourseRegistration">
+    <End Type="UniEBoardModel.Repository.Student" Role="Student" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.CourseRegistration" Role="CourseRegistration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseRegistration">
+        <PropertyRef Name="Student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseStaffCourses">
+    <End Type="UniEBoardModel.Repository.Course" Role="Cours" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.StaffCourse" Role="StaffCours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StaffCours">
+        <PropertyRef Name="Course_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseTemplateCourse">
+    <End Type="UniEBoardModel.Repository.CourseTemplate" Role="CourseTemplate" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Course" Role="Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseTemplate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="CourseTemplate_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GenderUser">
+    <End Type="UniEBoardModel.Repository.Gender" Role="Gender" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserGender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserMembership">
+    <End Type="UniEBoardModel.Repository.Membership" Role="Membership" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membership">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Membership_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePermissionsPermission">
+    <End Type="UniEBoardModel.Repository.Permission" Role="Permission" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.RolePermission" Role="RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="Permissions_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PositionStaff">
+    <End Type="UniEBoardModel.Repository.Position" Role="Position" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Staff" Role="Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="Position_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuestionQuestionOptions">
+    <End Type="UniEBoardModel.Repository.Question" Role="Question" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.QuestionChoice" Role="QuestionChoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuestionChoice">
+        <PropertyRef Name="Question_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuizQuestion">
+    <End Type="UniEBoardModel.Repository.Quiz" Role="Quiz" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Question" Role="Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="Quiz_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuizQuizEntry">
+    <End Type="UniEBoardModel.Repository.Quiz" Role="Quiz" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.QuizEntry" Role="QuizEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuizEntry">
+        <PropertyRef Name="Quiz_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentQuizEntry">
+    <End Type="UniEBoardModel.Repository.Student" Role="Student" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.QuizEntry" Role="QuizEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuizEntry">
+        <PropertyRef Name="Student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleRolePermissions">
+    <End Type="UniEBoardModel.Repository.Role" Role="Role" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.RolePermission" Role="RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffStaffCourses">
+    <End Type="UniEBoardModel.Repository.Staff" Role="Staff" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.StaffCourse" Role="StaffCours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StaffCours">
+        <PropertyRef Name="Staff_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffUnit">
+    <End Type="UniEBoardModel.Repository.Staff" Multiplicity="1" Role="Staff" />
+    <End Type="UniEBoardModel.Repository.Unit" Multiplicity="*" Role="Unit" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="StaffId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentSubmission">
+    <End Type="UniEBoardModel.Repository.Student" Role="Student" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Submission" Role="Submission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Submission">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTask">
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserPermission">
+    <End Type="UniEBoardModel.Repository.Permission" Role="Permission" Multiplicity="*" />
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="*" />
+  </Association>
+  <Association Name="UserRole">
+    <End Type="UniEBoardModel.Repository.Role" Role="Role" Multiplicity="*" />
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ViewedMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <NavigationProperty Name="User" Relationship="UniEBoardModel.Repository.UserStudentViewedAlerts" FromRole="StudentViewedAlerts" ToRole="User" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <NavigationProperty Name="Message" Relationship="UniEBoardModel.Repository.MessageViewedMessage" FromRole="ViewedMessage" ToRole="Message" />
+    <Property Type="Int32" Name="MessageId" Nullable="false" />
+  </EntityType>
+  <Association Name="UserMessage">
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="FromUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserMessage1">
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="RecipientUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserStudentViewedAlerts">
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.ViewedMessage" Role="StudentViewedAlerts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentViewedAlerts">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MessageViewedMessage">
+    <End Type="UniEBoardModel.Repository.Message" Role="Message" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.ViewedMessage" Role="ViewedMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Message">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ViewedMessage">
+        <PropertyRef Name="MessageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StaffGroup">
+    <End Type="UniEBoardModel.Repository.Staff" Role="Staff" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Group" Role="Group" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="AssignedStaffId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <NavigationProperty Name="User" Relationship="UniEBoardModel.Repository.UserUserGroup" FromRole="UserGroup" ToRole="User" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="UniEBoardModel.Repository.GroupUserGroup" FromRole="UserGroup" ToRole="Group" />
+    <Property Type="Int32" Name="GroupId" Nullable="false" />
+  </EntityType>
+  <Association Name="UserUserGroup">
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.UserGroup" Role="UserGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserGroup">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GroupUserGroup">
+    <End Type="UniEBoardModel.Repository.Group" Role="Group" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.UserGroup" Role="UserGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserGroup">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="GroupMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <NavigationProperty Name="Group" Relationship="UniEBoardModel.Repository.GroupGroupMessage" FromRole="GroupMessage" ToRole="Group" />
+    <Property Type="Int32" Name="GroupId" Nullable="false" />
+    <NavigationProperty Name="Message" Relationship="UniEBoardModel.Repository.MessageGroupMessage" FromRole="GroupMessage" ToRole="Message" />
+    <Property Type="Int32" Name="MessageId" Nullable="false" />
+  </EntityType>
+  <Association Name="GroupGroupMessage">
+    <End Type="UniEBoardModel.Repository.Group" Role="Group" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.GroupMessage" Role="GroupMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupMessage">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MessageGroupMessage">
+    <End Type="UniEBoardModel.Repository.Message" Role="Message" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.GroupMessage" Role="GroupMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Message">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GroupMessage">
+        <PropertyRef Name="MessageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseAssignment">
+    <End Type="UniEBoardModel.Repository.Course" Role="Course" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Assignment" Role="Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitAssignment">
+    <End Type="UniEBoardModel.Repository.Unit" Multiplicity="0..1" Role="Unit" />
+    <End Type="UniEBoardModel.Repository.Assignment" Multiplicity="*" Role="Assignment" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SubmissionFileUpload">
+    <End Type="UniEBoardModel.Repository.Submission" Role="Submission" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.BaseFile" Role="FileUpload" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Submission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileUpload">
+        <PropertyRef Name="SubmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssignmentFileUpload">
+    <End Type="UniEBoardModel.Repository.Assignment" Role="Assignment" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.BaseFile" Role="FileUpload" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Assignment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileUpload">
+        <PropertyRef Name="AssignmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="File" BaseType="UniEBoardModel.Repository.BaseFile">
+    <Property Type="Binary" Name="Content" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Type="String" Name="ContentType" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="ContentLength" Nullable="false" />
+  </EntityType>
+  <Association Name="QuizEntryAnswer">
+    <End Type="UniEBoardModel.Repository.QuizEntry" Role="QuizEntry" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Answer" Role="Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuizEntry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answer">
+        <PropertyRef Name="QuizEntryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ModuleQuiz">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="ModuleId" Nullable="false" />
+    <NavigationProperty Name="Quiz" Relationship="UniEBoardModel.Repository.QuizModuleQuiz" FromRole="ModuleQuiz" ToRole="Quiz" />
+    <Property Type="Int32" Name="QuizId" Nullable="false" />
+    <NavigationProperty Name="Module" Relationship="UniEBoardModel.Repository.FK_ModuleModuleQuiz" FromRole="ModuleQuiz" ToRole="Module" />
+  </EntityType>
+  <Association Name="QuizModuleQuiz">
+    <End Type="UniEBoardModel.Repository.Quiz" Role="Quiz" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.ModuleQuiz" Role="ModuleQuiz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleQuiz">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AnswerQuestionChoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <NavigationProperty Name="QuestionChoice" Relationship="UniEBoardModel.Repository.QuestionChoiceAnswerQuestionChoice" FromRole="AnswerQuestionChoice" ToRole="QuestionChoice" />
+    <Property Type="Int32" Name="QuestionChoiceId" Nullable="false" />
+    <NavigationProperty Name="Answer" Relationship="UniEBoardModel.Repository.AnswerAnswerQuestionChoice" FromRole="AnswerQuestionChoice" ToRole="Answer" />
+    <Property Type="Int32" Name="AnswerId" Nullable="false" />
+  </EntityType>
+  <Association Name="QuestionChoiceAnswerQuestionChoice">
+    <End Type="UniEBoardModel.Repository.QuestionChoice" Role="QuestionChoice" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.AnswerQuestionChoice" Role="AnswerQuestionChoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuestionChoice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AnswerQuestionChoice">
+        <PropertyRef Name="QuestionChoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AnswerAnswerQuestionChoice">
+    <End Type="UniEBoardModel.Repository.Answer" Role="Answer" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.AnswerQuestionChoice" Role="AnswerQuestionChoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Answer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AnswerQuestionChoice">
+        <PropertyRef Name="AnswerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="DateTime" Name="PublishFrom" Nullable="true" />
+    <Property Type="DateTime" Name="PublishTo" Nullable="true" />
+    <NavigationProperty Name="Course" Relationship="UniEBoardModel.Repository.CourseSchedule" FromRole="Schedule" ToRole="Course" />
+    <Property Type="Int32" Name="CourseId" Nullable="false" />
+    <NavigationProperty Name="Unit" Relationship="UniEBoardModel.Repository.UnitSchedule" FromRole="Schedule" ToRole="Unit" />
+    <Property Type="Int32" Name="UnitId" Nullable="false" />
+    <Property Type="DateTime" Name="ScheduledFrom" Nullable="true" />
+    <Property Type="DateTime" Name="ScheduledTo" Nullable="true" />
+  </EntityType>
+  <Association Name="CourseSchedule">
+    <End Type="UniEBoardModel.Repository.Course" Role="Course" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Schedule" Role="Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitSchedule">
+    <End Type="UniEBoardModel.Repository.Unit" Role="Unit" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Schedule" Role="Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Topic" BaseType="UniEBoardModel.Repository.BaseQuestionTopic">
+    <Property Type="Boolean" Name="IsPinned" Nullable="false" />
+    <NavigationProperty Name="TopicPosts" Relationship="UniEBoardModel.Repository.TopicTopicPost" FromRole="Topic" ToRole="TopicPost" />
+    <Property Type="Int32" Name="DiscussionId" Nullable="false" />
+    <NavigationProperty Name="Discussion" Relationship="UniEBoardModel.Repository.FK_DiscussionTopic" FromRole="Topic" ToRole="Discussion" />
+  </EntityType>
+  <EntityType Name="TopicPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="IP" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="Status" Nullable="false" />
+    <Property Type="String" Name="Body" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="Int32" Name="Votes" Nullable="true" />
+    <NavigationProperty Name="PostedByUser" Relationship="UniEBoardModel.Repository.UserTopicPost" FromRole="TopicPost" ToRole="User" />
+    <Property Type="Int32" Name="PostedByUserId" Nullable="false" />
+    <NavigationProperty Name="ReplyPosts" Relationship="UniEBoardModel.Repository.TopicPostTopicPost" FromRole="TopicPost" ToRole="TopicPost1" />
+    <NavigationProperty Name="ParentPost" Relationship="UniEBoardModel.Repository.TopicPostTopicPost" FromRole="TopicPost1" ToRole="TopicPost" />
+    <Property Type="Int32" Name="ParentTopicPostId" Nullable="true" />
+    <NavigationProperty Name="Topic" Relationship="UniEBoardModel.Repository.TopicTopicPost" FromRole="TopicPost" ToRole="Topic" />
+    <Property Type="Int32" Name="TopicId" Nullable="false" />
+    <NavigationProperty Name="Discussions" Relationship="UniEBoardModel.Repository.FK_TopicPostDiscussion" FromRole="TopicPost" ToRole="Discussion" />
+  </EntityType>
+  <Association Name="UserTopicPost">
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.TopicPost" Role="TopicPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TopicPost">
+        <PropertyRef Name="PostedByUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TopicPostTopicPost">
+    <End Type="UniEBoardModel.Repository.TopicPost" Role="TopicPost" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.TopicPost" Role="TopicPost1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TopicPost">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TopicPost1">
+        <PropertyRef Name="ParentTopicPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BaseQuestionTopic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="Status" Nullable="false" />
+    <Property Type="Boolean" Name="IsTopic" Nullable="false" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="DateTime" Name="PublishFrom" Nullable="true" />
+    <Property Type="DateTime" Name="PublishTo" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Originator" Relationship="UniEBoardModel.Repository.UserBaseQuestionTopic" FromRole="BaseQuestionTopic" ToRole="User" />
+    <Property Type="Int32" Name="OriginatorId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserQuestion" BaseType="UniEBoardModel.Repository.BaseQuestionTopic" />
+  <Association Name="TopicTopicPost">
+    <End Type="UniEBoardModel.Repository.Topic" Role="Topic" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.TopicPost" Role="TopicPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TopicPost">
+        <PropertyRef Name="TopicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserBaseQuestionTopic">
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.BaseQuestionTopic" Role="BaseQuestionTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BaseQuestionTopic">
+        <PropertyRef Name="OriginatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Url" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Logo" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Contacts" Relationship="UniEBoardModel.Repository.CompanyContact" FromRole="Company" ToRole="Contact" />
+    <NavigationProperty Name="Users" Relationship="UniEBoardModel.Repository.CompanyUser" FromRole="Company" ToRole="User" />
+    <NavigationProperty Name="Courses" Relationship="UniEBoardModel.Repository.CompanyCourse" FromRole="Company" ToRole="Course" />
+    <NavigationProperty Name="Assets" Relationship="UniEBoardModel.Repository.CompanyAsset" FromRole="Company" ToRole="Asset" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Title" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Phone" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Mobile" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Fax" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="PostCode" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Company" Relationship="UniEBoardModel.Repository.CompanyContact" FromRole="Contact" ToRole="Company" />
+    <Property Type="Int32" Name="CompanyId" Nullable="true" />
+  </EntityType>
+  <Association Name="CompanyContact">
+    <End Type="UniEBoardModel.Repository.Company" Role="Company" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Contact" Role="Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmentCourse">
+    <End Type="UniEBoardModel.Repository.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Course" Role="Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyUser">
+    <End Type="UniEBoardModel.Repository.Company" Role="Company" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CompanyCourse">
+    <End Type="UniEBoardModel.Repository.Company" Role="Company" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Course" Role="Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartmentStaff">
+    <End Type="UniEBoardModel.Repository.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Staff" Role="Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Asset">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="AssetType" Nullable="false" />
+    <Property Type="String" Name="Path" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Tags" Relationship="UniEBoardModel.Repository.TagAsset" FromRole="Asset" ToRole="Tag" />
+    <NavigationProperty Name="Company" Relationship="UniEBoardModel.Repository.CompanyAsset" FromRole="Asset" ToRole="Company" />
+    <Property Type="Int32" Name="CompanyId" Nullable="false" />
+    <Property Type="String" Name="ContentType" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Guid" Name="IdentityToken" Nullable="false" />
+    <NavigationProperty Name="Assets_WebPage" Relationship="UniEBoardModel.Repository.FK_Assets_WebPage_Assets" FromRole="Asset" ToRole="Assets_WebPage" />
+    <NavigationProperty Name="Units1" Relationship="UniEBoardModel.Repository.UnitAsset" FromRole="Asset" ToRole="Unit" />
+    <NavigationProperty Name="Assignments" Relationship="UniEBoardModel.Repository.AssignmentAsset" FromRole="Asset" ToRole="Assignment" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Assets" Relationship="UniEBoardModel.Repository.TagAsset" FromRole="Tag" ToRole="Asset" />
+  </EntityType>
+  <Association Name="TagAsset">
+    <End Type="UniEBoardModel.Repository.Tag" Role="Tag" Multiplicity="*" />
+    <End Type="UniEBoardModel.Repository.Asset" Role="Asset" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Document" BaseType="UniEBoardModel.Repository.Asset">
+    <NavigationProperty Name="Units" Relationship="UniEBoardModel.Repository.UnitDocument" FromRole="Document" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="Image" BaseType="UniEBoardModel.Repository.Asset" />
+  <Association Name="CompanyAsset">
+    <End Type="UniEBoardModel.Repository.Company" Role="Company" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Asset" Role="Asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asset">
+        <PropertyRef Name="CompanyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitVideo">
+    <End Type="UniEBoardModel.Repository.Unit" Role="Unit" Multiplicity="*" />
+    <End Type="UniEBoardModel.Repository.Video" Role="Video" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Video">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="VideoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UnitDocument">
+    <End Type="UniEBoardModel.Repository.Unit" Role="Unit" Multiplicity="*" />
+    <End Type="UniEBoardModel.Repository.Document" Role="Document" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PublishFrom" Type="DateTime" />
+    <Property Name="PublishTo" Type="DateTime" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" />
+    <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Approved" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedByStaff_Id" Type="Int32" Nullable="false" />
+    <Property Name="Course_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Assignments" Relationship="UniEBoardModel.Repository.FK_ModuleAssignment" FromRole="Module" ToRole="Assignment" />
+    <NavigationProperty Name="CourseModules" Relationship="UniEBoardModel.Repository.FK_ModuleCourseModules" FromRole="Module" ToRole="CourseModule" />
+    <NavigationProperty Name="ModuleQuizs" Relationship="UniEBoardModel.Repository.FK_ModuleModuleQuiz" FromRole="Module" ToRole="ModuleQuiz" />
+    <NavigationProperty Name="Units" Relationship="UniEBoardModel.Repository.FK_ModuleUnit" FromRole="Module" ToRole="Unit" />
+    <NavigationProperty Name="Users_Staff" Relationship="UniEBoardModel.Repository.FK_StaffModule" FromRole="Module" ToRole="Staff" />
+    <Property Type="Int32" Name="SortOrder" />
+  </EntityType>
+  <Association Name="FK_ModuleAssignment">
+    <End Type="UniEBoardModel.Repository.Module" Role="Module" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Assignment" Role="Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModuleCourseModules">
+    <End Type="UniEBoardModel.Repository.Module" Role="Module" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.CourseModule" Role="CourseModule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseModule">
+        <PropertyRef Name="Module_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModuleModuleQuiz">
+    <End Type="UniEBoardModel.Repository.Module" Role="Module" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.ModuleQuiz" Role="ModuleQuiz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ModuleQuiz">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ModuleUnit">
+    <End Type="UniEBoardModel.Repository.Module" Role="Module" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Unit" Role="Unit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Module">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StaffModule">
+    <End Type="UniEBoardModel.Repository.Staff" Role="Staff" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Module" Role="Module" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Module">
+        <PropertyRef Name="CreatedByStaff_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Discussion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="SortOrder" />
+    <Property Type="Boolean" Name="IsPostModerated" Nullable="false" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CourseId" />
+    <Property Type="Int32" Name="LatestPostId" />
+    <NavigationProperty Name="BaseQuestionTopics_Topic" Relationship="UniEBoardModel.Repository.FK_DiscussionTopic" FromRole="Discussion" ToRole="Topic" />
+    <NavigationProperty Name="Cours" Relationship="UniEBoardModel.Repository.FK_CourseDiscussion" FromRole="Discussion" ToRole="Course" />
+    <NavigationProperty Name="TopicPost" Relationship="UniEBoardModel.Repository.FK_TopicPostDiscussion" FromRole="Discussion" ToRole="TopicPost" />
+    <Property Type="Int32" Name="ParentDiscussionId" />
+  </EntityType>
+  <Association Name="FK_DiscussionTopic">
+    <End Type="UniEBoardModel.Repository.Discussion" Role="Discussion" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Topic" Role="Topic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Discussion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Topic">
+        <PropertyRef Name="DiscussionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseDiscussion">
+    <End Type="UniEBoardModel.Repository.Course" Role="Course" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Discussion" Role="Discussion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Discussion">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TopicPostDiscussion">
+    <End Type="UniEBoardModel.Repository.TopicPost" Role="TopicPost" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Discussion" Role="Discussion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TopicPost">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Discussion">
+        <PropertyRef Name="LatestPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Assets_WebPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Asset" Relationship="UniEBoardModel.Repository.FK_Assets_WebPage_Assets" FromRole="Assets_WebPage" ToRole="Asset" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" />
+    <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsConfirmed" Type="Boolean" />
+    <Property Name="LastPasswordFailureDate" Type="DateTime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordChangedDate" Type="DateTime" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Memberships" Relationship="UniEBoardModel.Repository.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="Membership" />
+  </EntityType>
+  <Association Name="FK_Assets_WebPage_Assets">
+    <End Type="UniEBoardModel.Repository.Asset" Role="Asset" Multiplicity="1" />
+    <End Type="UniEBoardModel.Repository.Assets_WebPage" Role="Assets_WebPage" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Asset">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Assets_WebPage">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="webpages_UsersInRoles">
+    <End Type="UniEBoardModel.Repository.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+    <End Type="UniEBoardModel.Repository.Membership" Role="Membership" Multiplicity="*" />
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <Association Name="UnitAsset">
+    <End Type="UniEBoardModel.Repository.Asset" Role="Asset" Multiplicity="*" />
+    <End Type="UniEBoardModel.Repository.Unit" Role="Unit" Multiplicity="*" />
+  </Association>
+  <Association Name="FK_QuizUnit">
+    <End Type="UniEBoardModel.Repository.Quiz" Role="Quiz" Multiplicity="0..1" />
+    <End Type="UniEBoardModel.Repository.Unit" Role="Unit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quiz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unit">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AssignmentAsset">
+    <End Type="UniEBoardModel.Repository.Asset" Role="Asset" Multiplicity="*" />
+    <End Type="UniEBoardModel.Repository.Assignment" Role="Assignment" Multiplicity="*" />
+  </Association>
+</Schema>

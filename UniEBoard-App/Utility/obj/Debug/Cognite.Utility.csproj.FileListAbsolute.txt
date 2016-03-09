@@ -1,0 +1,16 @@
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\Utility.dll
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\Utility.pdb
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\System.Web.Mvc.dll
+F:\UniEBoard-App\UniEBoard-App\Utility\obj\Debug\Utility.dll
+F:\UniEBoard-App\UniEBoard-App\Utility\obj\Debug\Utility.pdb
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\System.Web.Razor.dll
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\System.Web.WebPages.Razor.dll
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\System.Web.WebPages.dll
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\System.Web.Razor.xml
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\System.Web.WebPages.Razor.xml
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\System.Web.WebPages.xml
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\Microsoft.Web.Infrastructure.xml
+F:\UniEBoard-App\UniEBoard-App\Utility\bin\Debug\System.Web.WebPages.Deployment.xml
+F:\UniEBoard-App\UniEBoard-App\Utility\obj\Debug\Cognite.Utility.csprojResolveAssemblyReference.cache
