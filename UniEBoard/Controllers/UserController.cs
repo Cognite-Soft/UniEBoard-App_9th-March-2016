@@ -106,7 +106,7 @@ namespace UniEBoard.Controllers
         [ActionName("Users")]
         public ActionResult Users()
         {
-            //StaffViewModel staff = _staffService.GetStaffByMemberShipId(CurrentUser.Id);
+        
             var displayFilter = new PageViewAllFilterViewModel(Url.Action("Users", "User"));
             ViewData["Pager"] = displayFilter;
             //ViewData["Courses"] = _courseModuleService.GetCoursesByStaff(CurrentUser.Id).Select(v => new SelectListItem { Value = v.Id.ToString(), Text = v.Title }).ToArray();
