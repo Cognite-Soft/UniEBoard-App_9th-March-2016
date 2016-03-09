@@ -29,13 +29,13 @@
                     }
                     else
                     {
-                        <iframe src="@Url.Action("Render", "Asset", new { Id = asset.Id })" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="@Url.Action("Render", "Asset", new { Id = asset.Id })" data-src=@asset.Path frameborder="0" allowfullscreen=""></iframe>
                     }
                 </div>
             }
-         }
+        }
     }
-   
+
 }
 
 <form class="custom" id="unitForm">
@@ -157,7 +157,8 @@ item.DurationSelectedOption.ToString(), "Select Duration", new { @class = "small
 
 </form>
 
-<script src="/Scripts/js/sidebarEffects.js"></script>
+
+<!--<script src="/js/sidebarEffects.js"></script>-->
 @if(ajaxCall != null && (bool)ajaxCall == true) {
     
     <script type="text/javascript">
@@ -171,6 +172,7 @@ item.DurationSelectedOption.ToString(), "Select Duration", new { @class = "small
             //BindRemoveAsset();
             //BindDatePicker();
             //$(document).foundation();
+
         });
         
     

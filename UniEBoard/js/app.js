@@ -176,11 +176,43 @@ $(document).ready(function () {
 
     /* Add New button Toggle
     --------------------------------------*/
+    $(document).ready(function() {
     $('.create-new').on('click', function () {
+        //alert('test');
         $('#AddNew').toggleClass('hide');
         $(this).children('i').toggleClass('icon-minus');
     });
+    });
 
+
+    //Cognite-Code
+    $(function () {
+        $("#ddlPassport").change(function () {
+            alert("Test Code1")
+            if ($(this).val() == "Teacher") {
+                $("#dept").show();
+            } else {
+                $("#dept").hide();
+            }
+        });
+    });
+
+    $(document).ready(function () {
+      
+        $("#dept").hide();
+       
+    });
+
+    //$(function () {
+    //    $("#selectdept").change(function () {
+    //        alert("Test")
+    //        if ($(this).val() == "Y") {
+    //            $("#dvPassport").show();
+    //        } else {
+    //            $("#dvPassport").hide();
+    //        }
+    //    });
+    //});
 
 
 
@@ -1287,7 +1319,9 @@ function formatDate(dateFormatted) {
 /* Reveal buttons
    --------------------------------------*/
 function BindReveal() {
+    
     $('body').on('click', '.reveal-bottom', function () {
+        //('this is bind reveal');
         $('.st-menu').css('width', '100%');
         $('.st-menu').css('height', '100%');
         $('.st-menu').css('padding-top', '20px');
@@ -1305,7 +1339,9 @@ function BindReveal() {
             $('#menu-2').html(contentBody);
         }
     });
+
     $('body').on('click', '.reveal-side', function () {
+        //alert("this is test");
         console.log("hello reveal");
         $('.st-menu').css('width', '95%');
         $('.st-menu').css('height', '100%');
@@ -1315,11 +1351,12 @@ function BindReveal() {
         $('.no-csstransforms3d .st-pusher').css('padding-bottom', '35%');
         $('.no-js .st-pusher').css('padding-bottom', '35%');
 
-        $('.close-reveal').css('display', 'block');
-        $('.close-reveal').data('video', $(this).data('video'));
+        $('.close-reveal-modal').css('display', 'block');
+        $('.close-reveal-modal').data('video', $(this).data('video'));
 
         //insert content
         var contentID = $(this).data('id');
+        //alert('content: ' + contentID);
         if (contentID) {
             var contentBody = $('#' + $(this).data('id')).html();
             $('#menu-1').html(contentBody);
@@ -1327,20 +1364,27 @@ function BindReveal() {
             var contentBody = $('#newPost').html();
             $('#menu-1').html(contentBody);
         }
+        //alert('content body: ' + contentBody);
 
         //play video
         var myVideo = $('#' + $(this).data('video')).get(0);
         if (myVideo != undefined && myVideo != null) {
+            //alert("this is if part");
             myVideo.play();
         }
+        //else {
+         //   alert("this is else part");
+        //}
 
     });
-    $('body').on('click', '.close-reveal', function () {
+    $('body').on('click', '.close-reveal-modal', function () {
         //stop video
         $(this).css('display', 'none');
         var myVideo = $('#' + $(this).data('video')).get(0);
+        //alert('my video' + myVideo);
         myVideo.pause();
     });
+    
 }
 
 function BindSubmitGrades() {

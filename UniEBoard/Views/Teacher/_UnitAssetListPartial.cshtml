@@ -6,11 +6,11 @@
                 
                     @* === Videos === *@
                     @if (asset.AssetType == 1)
-            {
-                        <a data-effect="st-effect-1" class="sidebar-activate reveal-side" data-id="@asset.Id" data-video="Video_@asset.Id" title="@asset.Name">
-                            <i class="icon-youtube-play"></i><span>&nbsp;@asset.Name</span>
-                        </a>
-            }
+{
+    <a data-effect="st-effect-1" class="sidebar-activate reveal-side" href="#" data-reveal-id="@asset.Id" data-video="@asset.Id" title="@asset.Name">
+        <i class="icon-youtube-play"></i><span>&nbsp;@asset.Name</span>
+    </a>
+}
             @* === Images === *@
             @if (asset.AssetType == 3 || asset.ContentType.Equals("image/jpeg"))
             {

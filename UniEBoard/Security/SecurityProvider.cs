@@ -22,21 +22,26 @@ namespace UniEBoard.Security
         {
             ISecurityAppService securityservice =ObjectFactory.GetInstance<ISecurityAppService>();
             IUserAppService userAppService = ObjectFactory.GetInstance<IUserAppService>();
-            var user = userAppService.GetUserByUserName(httpContext.User.Identity.Name);
-            if (!string.IsNullOrEmpty(Roles))
-            {
-                foreach (string role in this.Roles.Split(','))
+
+                var user = userAppService.GetUserByUserName(httpContext.User.Identity.Name);
+                
+                if (user != null)
                 {
-                    foreach (var roleViewModel in user.Roles)
+                    if (!string.IsNullOrEmpty(Roles))
                     {
-                        if (role.Trim().ToLower().Equals(roleViewModel.Title.Trim().ToLower()))
+                        foreach (string role in this.Roles.Split(','))
                         {
-                            return true;
+                            foreach (var roleViewModel in user.Roles)
+                            {
+                                if (role.Trim().ToLower().Equals(roleViewModel.Title.Trim().ToLower()))
+                                {
+                                    return true;
+                                }
+                            }
                         }
                     }
                 }
-            }
-            
+                       
             return false;
         }
 

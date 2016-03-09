@@ -23,7 +23,7 @@ namespace UniEBoard.Controllers
 {
     [CustomAuthorize]
     [InitializeSimpleMembership]
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
         #region Members
         
@@ -37,6 +37,8 @@ namespace UniEBoard.Controllers
         /// </summary>
         private IStudentAppService _studentService;
 
+        private IUserAppService _userAppService;
+
         #endregion
 
         #region AdminController
@@ -46,10 +48,11 @@ namespace UniEBoard.Controllers
         /// </summary>
         /// <param name="staffService">The staff service.</param>
         /// <param name="studentService">The student service.</param>
-        public AdminController(IStaffAppService staffService, IStudentAppService studentService)
+        public AdminController(IStaffAppService staffService, IStudentAppService studentService, IUserAppService userAppService) : base(userAppService)
         {
             this._staffService = staffService;
             this._studentService = studentService;
+            this._userAppService = userAppService;
         }
 
         #endregion
@@ -104,6 +107,7 @@ namespace UniEBoard.Controllers
         public ActionResult Students()
         {
             List<StudentViewModel> students = _studentService.GetAllStudents();
+            List<StaffViewModel> staff = _staffService.GetAllStaff();            
             return View(students);
         }
 
@@ -129,8 +133,26 @@ namespace UniEBoard.Controllers
             //var request = new RestRequest("api/adminmanageusers", Method.GET);
             //var response2 = client.Execute<List<StudentViewModel>>(request);
             //return View(response2.Data);
-            List<StudentViewModel> students = _studentService.GetAllStudents();
-            return View(students);
+            List<StudentViewModel> studentslist = _studentService.GetAllStudents();
+            List<StaffViewModel> stafflist = _staffService.GetAllStaff();
+            List<UserViewModel> lstusrviewModel = new List<UserViewModel>();
+            var onlineUsers = AddOnlineUsers(CurrentUser);
+            foreach (var user in studentslist)
+            {
+                lstusrviewModel.Add(user);
+            }
+
+            foreach(var user in stafflist)
+            {
+
+                lstusrviewModel.Add(user);
+            }
+            
+            ViewData["Users"] = lstusrviewModel;
+
+
+            ViewData["OnlineUsers"] = onlineUsers;
+            return View(CurrentUser);
         }
 
         //

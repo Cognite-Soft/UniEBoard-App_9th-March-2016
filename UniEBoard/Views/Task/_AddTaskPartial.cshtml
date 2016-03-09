@@ -28,15 +28,15 @@
         }
         *@
         <hr/>
-        @Html.LabelFor(m => m.Title, new { @class="hide" })
+        @Html.LabelFor(m => m.Title, new { @class="show" })
         @Html.TextBoxFor(m => m.Title, new { required = "required", placeholder = "Type your task title here" })  
         //@Html.ValidationMessageFor(m => m.Title)
 
-        @Html.LabelFor(m => m.Note, new { @class = "hide" })
+        @Html.LabelFor(m => m.Note, new { @class = "show" })
         @Html.TextAreaFor(m => m.Note, new { required = "required", placeholder = "Type your task notes here" })  
         //@Html.ValidationMessageFor(m => m.Note)
         
-        @Html.LabelFor(m => m.Deadline, new { @class = "hide" })
+        @Html.LabelFor(m => m.Deadline, new { @class = "show" })
         @Html.TextBoxFor(m => m.Deadline, new { required = "required", placeholder = "Select the deadline date", @class = "datetimepicker" }) 
         @*
         <input class="text-box single-line valid datetimepicker" data-val="true" 
