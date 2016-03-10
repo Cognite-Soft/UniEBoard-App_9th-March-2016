@@ -36,7 +36,7 @@
                             <td><p>@item.Email @*<input type="text" name="Email" id="Email" value="@item.Email">*@</p></td>
                             <td><p>Mobile</p></td>
                             <td class="tags" id="courseTags_@item.Id">
-                                @Html.Partial("_CourseTagPartial", item.Courses, new ViewDataDictionary { { "UserIdentifier", item.Id } })
+                                @Html.Partial("_CourseTagPartial", item.Courses, new ViewDataDictionary { { "UserIdentifier", item.Id } })                               
                             </td>
                             <td>
                                 <select class="small">
