@@ -33,10 +33,13 @@ namespace UniEBoard.Controllers
     {
         #region Members
 
-                /// <summary>
+
+        private IDiscussionAppService _discussionAppService;
+
+        /// <summary>
         /// Student Application Service
         /// </summary>
-	        private IStudentAppService _studentService;
+        private IStudentAppService _studentService;
 
         /// <summary>
         /// Course And Module Application Service 
@@ -69,6 +72,7 @@ namespace UniEBoard.Controllers
 
         #endregion
 
+
         #region Constructor
 
         /// <summary>
@@ -83,7 +87,8 @@ namespace UniEBoard.Controllers
             IQuizAppService quizservice, 
             IQuestionAppService questionService, 
             IAnswerAppService answerService,
-            IUserAppService userAppService) : base(userAppService)
+            IUserAppService userAppService,
+              IDiscussionAppService discussionAppService) : base(userAppService)
             
         {
             this._courseModuleService = courseModuleService;
@@ -93,6 +98,7 @@ namespace UniEBoard.Controllers
             _answerService = answerService;
                _studentService = studentService;
                _userAppService = userAppService;
+            _discussionAppService = discussionAppService;
         }
 
         #endregion
@@ -316,6 +322,203 @@ namespace UniEBoard.Controllers
         }
 
         #endregion
+
+        #region Courses
+
+        /// <summary>
+        /// Courseses this instance.
+        /// </summary>
+        /// <returns></returns>
+        [ActionName("Course")]
+        public ActionResult Course()
+        {
+            var displayFilter = new PageViewAllFilterViewModel(Url.Action("Course", "Course"));
+            return Course(displayFilter);
+        }
+
+        /// <summary>
+        /// Courseses this instance.
+        /// </summary>
+        /// <returns></returns>
+        [ActionName("Course")]
+        [HttpPost]
+        public ActionResult Course(PageViewAllFilterViewModel pageViewFilterModel)
+        {
+            ViewData["Pager"] = pageViewFilterModel;
+          //  ViewData["CourseList"] = _courseModuleService.GetCoursesWithDepartmentByStaffId(CurrentUser.Id, pageViewFilterModel.SelectedFilter).OrderBy(o => o.SortOrder);
+            ViewData["CourseList"]=_courseModuleService.GetAllCourses().OrderBy(o => o.SortOrder);
+            ViewData["DepartmentList"] = _courseModuleService.GetAllDepartments().Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name }).ToArray();
+
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult CourseListFilteredPartial(string filter)
+        {
+            //var courses = _courseModuleService.GetCoursesWithDepartmentByStaffId(CurrentUser.Id, filter).OrderBy(o => o.SortOrder);
+            var courses = _courseModuleService.GetCoursesWithDepartmentByStaffId(CurrentUser.Id, filter).OrderBy(o => o.SortOrder);
+            ViewData["DepartmentList"] = _courseModuleService.GetAllDepartments().Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name }).ToArray();
+
+            return PartialView("_CourseListPartial", courses);
+        }
+
+        /// <summary>
+        /// Creates the course.
+        /// </summary>
+        /// <param name="courseViewModel">The course view model.</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult CreateCourse(CourseViewModel courseViewModel)
+        {
+            try
+            {
+                /*if (courseViewModel != null)
+                {
+                    unitViewModel.StaffId = CurrentUser.Id;
+                    _unitModuleAppService.CreateUnit(unitViewModel);
+                }
+                return RedirectToAction("Units");*/
+                if (ModelState.IsValid)
+                {
+                    DiscussionViewModel discussionViewModel = new DiscussionViewModel();
+                    courseViewModel.OwnerId = courseViewModel.OwnerId == null ? CurrentUser.Id : courseViewModel.OwnerId;
+                    int? courseId = _courseModuleService.CreateCourseByStaff(courseViewModel, CurrentUser.Id);
+
+                    if (courseId.HasValue)
+                    {
+                        discussionViewModel.CourseId = courseId.Value;
+                        discussionViewModel.Description = courseViewModel.Overview;
+                        discussionViewModel.Title = courseViewModel.Title;
+                       _discussionAppService.CreateDiscussion(discussionViewModel);
+                    }
+
+                    UniEBoard.Helpers.StatusHelper.SuccessMessage("Course has been created successfully.", this);
+
+                    return RedirectToAction("Course");
+                }
+
+                ViewData["CourseList"] = _courseModuleService.GetCoursesWithDepartmentByStaffId(CurrentUser.Id, 10).OrderBy(o => o.SortOrder);
+                ViewData["DepartmentList"] = _courseModuleService.GetAllDepartments().Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name }).ToArray();
+            }
+            catch (Exception ex)
+            {
+                UniEBoard.Helpers.StatusHelper.ErrorMessage("An error occurred while creating new course. Please contact the administrator", this);
+            }
+
+            return View("Course");
+        }
+
+        //[HttpPost]
+        [Authorize]
+        public ActionResult RemoveCourse(int courseId)
+        {
+            _courseModuleService.CourseManager.RemoveCourse(courseId);
+            return RedirectToAction("Course");
+        }
+
+        /// <summary>
+        /// Updates the name of the asset.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="assetId">The asset id.</param>
+        [ActionName("UpdateCourse")]
+        [HttpPost]
+        public void UpdateCourse(string courseId, string name, string description, string departmentId, string courseLength, string publishFrom, string publishTo)
+        {
+            CourseViewModel course = _courseModuleService.GetCourseById(Convert.ToInt32(courseId));  //courseId.ToInteger());
+            if (course != null)
+            {
+                int dId;
+                DateTime pFrom, pTo;
+                course.Title = name;
+                course.Overview = description;
+                if (int.TryParse(departmentId, out dId)) course.DepartmentId = dId;
+                if (DateTime.TryParse(publishFrom, out pFrom)) course.PublishFrom = pFrom;
+                if (DateTime.TryParse(publishTo, out pTo)) course.PublishTo = pTo;
+                course.Length = courseLength;
+
+                _courseModuleService.UpdateCourse(course);
+            }
+        }
+
+        [HttpPost]
+        public void UpdateCoursesOrder(List<string> draggedItemId/*, bool draggedDown, int prevIndex, int newIndex*/)
+        {
+            var itemIds = draggedItemId;
+            UpdateCourseOrder(draggedItemId);
+        }
+
+        private void UpdateCourseOrder(List<string> draggedItemId)
+        {
+            /*********************************
+             * Current implementation works perfect with non-pagination results but the logic doesn't support pagination in place. 
+             * This makes it more complex to handle the results. 
+             *********************************/
+            int sort = 0;
+            foreach (var courseId in draggedItemId)
+            {
+                int id = 0;
+                if (int.TryParse(courseId, out id))
+                {
+                    var course = _courseModuleService.GetCourseById(id);
+                    course.SortOrder = sort++;
+                    _courseModuleService.UpdateCourse(course);
+                }
+                else
+                {
+                    throw new InvalidCastException();
+                }
+            }
+
+            /*
+             * This was initially implemented to order the courses accross all staff/teachers.
+             * To me the reordering should only be done by Administrators.
+             */
+            /*var courses = _courseModuleService.GetCoursesWithDepartmentByStaffId(CurrentUser.Id, 0).OrderBy(o => o.SortOrder).Where(c => c.Id != draggedItemId).ToList();
+            var currentCourse = new CourseViewModel();
+            currentCourse = (from c in _courseModuleService.GetAllCourses()
+                             where c.Id == draggedItemId
+                             select c).FirstOrDefault();
+            if (draggedDown)
+                currentCourse.SortOrder += (newIndex);
+            else
+                currentCourse.SortOrder -= (newIndex);
+            courses.Add(currentCourse);
+            foreach (var course in courses)
+            {
+                if (course.SortOrder == currentCourse.SortOrder && course.Id != currentCourse.Id)
+                {
+                    if (draggedDown)
+                        course.SortOrder--;
+                    else
+                        course.SortOrder++;
+                }
+            }
+            IEnumerable<CourseViewModel> newCoursesList = courses;
+
+            newCoursesList = newCoursesList.OrderBy(o => o.SortOrder);*/
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="courseId"></param>
+        /// <param name="isEnabled"></param>
+        [HttpPost]
+        public void ActivateCourse(string courseId, bool isEnabled)
+        {
+            CourseViewModel courseViewModel = _courseModuleService.GetCourseById(Convert.ToInt32(courseId));//.ToInteger());
+            courseViewModel.Approved = isEnabled;
+            _courseModuleService.UpdateCourse(courseViewModel);
+
+        }
+
+        #endregion
+
 
         #region private Methods
 

@@ -551,13 +551,13 @@ function BindDatePicker() {
     $('body').on('focus', '.datetimepicker', function () {
         // hack to avoid double clicks on randomly generated date fields
         // not recomended though
-        $(this).datepicker({ dateFormat: "dd/mm/yy" }).datepicker("show");
+        $(this).datepicker({ dateFormat: "yy/mm/dd" }).datepicker("show");
     });
 
     $('body').on('focus', '.dateandtimepicker', function () {
         // hack to avoid double clicks on randomly generated date fields
         // not recomended though
-        $(this).datetimepicker({ dateFormat: "dd/mm/yy" }).datetimepicker("show");
+        $(this).datetimepicker({ dateFormat: "yy/mm/dd" }).datetimepicker("show");
     });
 
 }

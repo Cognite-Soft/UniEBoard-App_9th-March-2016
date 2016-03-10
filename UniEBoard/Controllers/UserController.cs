@@ -135,9 +135,15 @@ namespace UniEBoard.Controllers
             ViewData["Pager"] = pageViewFilterModel;
             ViewData["Courses"] = _courseModuleService.GetCoursesByStaff(CurrentUser.Id).Select(v => new SelectListItem { Value = v.Id.ToString(), Text = v.Title }).ToArray();
             ViewData["Users"] = _userAppService.GetStudentUsersByCompany(CurrentUser.CompanyId, pageViewFilterModel.SelectedFilter);
-            ViewData["Roles"] = _userAppService.GetAllAvailableRoles().Select(r => new SelectListItem { Value = r.Id.ToString(), Text = r.Title }).ToArray();      
+            ViewData["Roles"] = _userAppService.GetAllAvailableRoles().Select(r => new SelectListItem { Value = r.Id.ToString(), Text = r.Title }).ToArray();
 
+            SelectList selectList = new SelectList(_userAppService.GetAllAvailableRoles(), "Title", "Title");
+            ViewBag.RoleList = selectList;
 
+            List<CourseViewModel> lstCourseViewModel = _courseModuleService.GetAllCourses().OrderBy(o => o.Title).ToList();
+            //var selectListCourse = new SelectList(_courseModuleService.GetAllCourses(), "Code", "Title");         
+            ViewBag.CourseList = lstCourseViewModel;
+            // ViewBag.Courses = selectListCourse.;                       
             return View();
         }
 
@@ -151,9 +157,7 @@ namespace UniEBoard.Controllers
            // StaffViewModel staff = _staffService.GetStaffByMemberShipId(CurrentUser.Id);
           //  var users = _userAppService.GetStudentUsersByCompany(staff.CompanyId, filter);
             List<UserViewModel> lstUserViewModel = _userAppService.GetAllUsersByCompany(CurrentUser.CompanyId,0);
-
             
-
             var matchingvalues = lstUserViewModel.Where(x => x.FirstName.StartsWith(filter,StringComparison.OrdinalIgnoreCase)).ToList();
 
             return PartialView("_UserListPartial", matchingvalues);
@@ -263,7 +267,7 @@ namespace UniEBoard.Controllers
                                 CourseRegistrationViewModel registration = new CourseRegistrationViewModel() { Course_Id = user.CourseId };
 
                                 ((StudentViewModel)studentViewModel).CourseRegistrations = new List<CourseRegistrationViewModel> { registration };
-                                var _user = _userAppService.CreateUser(cog.WebSecurity.GetUserId(studentViewModel.UserName), studentViewModel);
+                                var _user = _userAppService.CreateUser(cog.WebSecurity.GetUserId(studentViewModel.UserName), studentViewModel);                               
                                 if (_user != null)
                                 {
                                     // TODO - pick the role from the Roles list availbable on the UserFormPartial view.
@@ -296,17 +300,22 @@ namespace UniEBoard.Controllers
                             if (cog.WebSecurity.UserExists(staffViewModel.UserName))
                             {
                                 CourseRegistrationViewModel registration = new CourseRegistrationViewModel() { Course_Id = user.CourseId };
-                            
 
-                                var _user = _userAppService.CreateUser(cog.WebSecurity.GetUserId(staffViewModel.UserName), staffViewModel);
-                                if (_user != null)
+
+                                //   
+                                var _userExists = _userAppService.GetUserByEmailId(user.Email);
+                                if (_userExists == null)
+                                {
+                                    var _user = _userAppService.CreateUser(cog.WebSecurity.GetUserId(staffViewModel.UserName), staffViewModel);
+                                    _userAppService.AssignRole(_user.Id, Service.C.Roles.Teacher);
+                                }
+                                else 
                                 {
                                     // TODO - pick the role from the Roles list availbable on the UserFormPartial view.
-                                    _userAppService.AssignRole(_user.Id, Service.C.Roles.Teacher);
+                                    _userAppService.AssignRole(_userExists.Id, Service.C.Roles.Teacher);
                                   // revisit  SendRegisterEmail(staffViewModel as StaffViewModel);
                                 }
                             }
-
 
                         }
 

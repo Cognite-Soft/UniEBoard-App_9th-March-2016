@@ -3745,6 +3745,12 @@
     <Content Include="Views\Shared\_CreateUserPartial.cshtml" />
     <Content Include="Views\Shared\_UserFilterPartial.cshtml" />
     <Content Include="Views\Shared\_UserListPartial.cshtml" />
+    <Content Include="Views\Course\Course.cshtml" />
+    <Content Include="Views\Shared\_CourseFormPartial.cshtml" />
+    <Content Include="Views\Shared\_CourseFilterPartial.cshtml" />
+    <Content Include="Views\Shared\_CourseListPartial.cshtml" />
+    <Content Include="Views\Shared\_CourseModuleTagPartial.cshtml" />
+    <Content Include="Views\Shared\_CourseTagPartial.cshtml" />
     <None Include="Views\Teacher\Grades.cshtml" />
     <Content Include="Views\Discussion\_DiscussionThreadPartial.cshtml" />
     <Content Include="Views\Discussion\_CreateTopicPost.cshtml" />

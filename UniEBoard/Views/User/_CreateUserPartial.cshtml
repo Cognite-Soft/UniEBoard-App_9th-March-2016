@@ -43,7 +43,7 @@
                     @*@Html.DropDownListFor(model => model._roleViewModel, ViewBag.RoleList as SelectList)*@
                     @*@Html.DropDownListFor(model => model._roleViewModel, ViewBag.RoleList as SelectList,"Select Role", new { @onchange = "CallChangefunc(this.value)" })*@
                     <select class="chosen-select" id="ddlPassport" name="@Html.NameFor(m => m._roleViewModel)">
-                        <option value="Teacher">Select Role...</option>
+                        <option value="">Select Role...</option>
                         <option value="Teacher">Teacher</option>
                         <option value="Student">Student</option>
                         <option value="Admin">Admin</option>
@@ -53,7 +53,7 @@
 
             <div class="row" id="dept">
                 <div class="large-6 columns">
-                    <select class="chosen-select" @*name="@Html.NameFor(m => m.Department)"*@>
+                    <select class="chosen-select" name="@Html.NameFor(m => m.Department)">
                         <option value="">Select Department...</option>
                         <option value="1">Information Technology</option>
                         <option value="2">Business</option>
@@ -61,7 +61,7 @@
                     </select>
                 </div>
                 <div class="large-6 columns">
-                    <select class="chosen-select" @*name="@Html.NameFor(m => m.Position)"*@>
+                    <select class="chosen-select" name="@Html.NameFor(m => m.Position)">
                         <option value="">Select Position...</option>
                         <option value="1">Not Specified</option>
                         <option value="2">Lecturer</option>

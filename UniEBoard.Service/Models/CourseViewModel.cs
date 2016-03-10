@@ -76,6 +76,27 @@ namespace UniEBoard.Service.Models
         public DateTime PublishFrom { get; set; }
 
         /// <summary>
+        /// Gets or sets the publish from.
+        /// </summary>
+        /// <value>The publish from.</value>
+     //   [DataType(DataType.Date)]
+      //  [Display(Name = "Start Date")]
+      //  [Required(ErrorMessage = "{0} is required.")]
+        public string startFrom { get; set; }
+
+
+
+        /// <summary>
+        /// Gets or sets the publish from.
+        /// </summary>
+        /// <value>The publish from.</value>
+   //     [DataType(DataType.Date)]
+     //   [Display(Name = "Start Date")]
+     //   [Required(ErrorMessage = "{0} is required.")]
+        public string endUntil { get; set; }
+
+
+        /// <summary>
         /// Gets or sets the publish to.
         /// </summary>
         /// <value>The publish to.</value>
