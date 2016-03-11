@@ -142,7 +142,7 @@ namespace UniEBoard.Controllers
         {
             try
             {
-                if (CurrentUser.IsAdmin) return RedirectToAction("Index", "Teacher");
+                if (CurrentUser.IsAdmin) return RedirectToAction("Index", "Admin");
                 var onlineUsers = AddOnlineUsers(CurrentUser);
 
                 ViewBag.Assignments = _assignmentTaskAndSubmissionService.GetAllStudentUpcomingTaskAndAssignmentDeadlines(CurrentUser.Id);

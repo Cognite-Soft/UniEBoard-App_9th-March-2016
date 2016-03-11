@@ -14,7 +14,7 @@
                    data-callback-target-id="users">
         </div>
         <div class="large-6 medium-6 columns">
-            @Html.CustomDropDownList("ddCourses", Model, string.Empty, "Select a course...", new { })
+            @Html.CustomDropDownList("ddCourses", Model, string.Empty, "Select a course...", new { required = "required"})
         </div>
 	</div>
     
@@ -22,6 +22,7 @@
     </div>
     
     <label for="question" class="hide">Message:</label>
-    <textarea id="textMessage" name="textMessage" placeholder="Type the message here"></textarea>
-    <a href="#" class="tiny radius button submitLink" data-reveal-id="myAnnouncement" data-form="messageForm">Send</a>
+    <textarea id="textMessage" name="textMessage" placeholder="Type the message here" required></textarea>
+    <input id="messagesendingbtn" type="submit" value="Send" class="tiny radius button t20" data-form="messageForm" data-reveal-id="myAnnouncement" />
+    <!--<a href="#" class="tiny radius button submitLink" data-reveal-id="myAnnouncement" data-form="messageForm">Send</a>-->
 }

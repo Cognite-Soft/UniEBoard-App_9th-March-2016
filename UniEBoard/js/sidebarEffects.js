@@ -8,6 +8,7 @@
 * Copyright 2013, Codrops
 * http://www.codrops.com
 */
+
 var SidebarMenuEffects = (function () {
 
     function hasParentClass(e, classname) {
@@ -33,7 +34,7 @@ var SidebarMenuEffects = (function () {
 			eventtype = mobilecheck() ? 'touchstart' : 'click',
 			resetMenu = function () {
 			    classie.remove(container, 'st-menu-open');
-			    $('.close-reveal').css('display', 'none');
+			    $('.close-reveal-modal').css('display', 'none');
 			},
 			bodyClickFn = function (evt) {
 			    if (!hasParentClass(evt.target, 'st-menu')) {

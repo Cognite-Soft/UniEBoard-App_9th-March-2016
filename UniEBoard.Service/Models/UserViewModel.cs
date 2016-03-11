@@ -121,20 +121,43 @@ namespace UniEBoard.Service.Models
         /// <value>The courses.</value>
         public ICollection<CourseViewModel> Courses { get; set; }
 
+
+        public CourseViewModel selectedcourse { get; set; }
+
         /// <summary>
         /// Gets or sets the roles.
         /// </summary>
         /// <value>The user roles.</value>
         public ICollection<RoleViewModel> Roles { get; set; }
 
+        public string _roleViewModel { get; set; }
+
+
+        public int UserType { get; set; }
+
+        public int Department { get; set; }
+
+        public int Position { get; set; }
+
         /// <summary>
         /// Gets or sets the default course id.
         /// </summary>
         /// <value>The default course id.</value>
-        [Display(Name = "Course")]
-        [Required(ErrorMessage = "{0} is required.")]
-        [Range(1, int.MaxValue, ErrorMessage = "Please Select your Course")]
+        //[Display(Name = "Course")]
+        //[Required(ErrorMessage = "{0} is required.")]
+        //[Range(1, int.MaxValue, ErrorMessage = "Please Select your Course")]
         public int DefaultCourseId { get; set; }
+
+
+        public int CourseTemplate_Id;
+
+        /// <summary>
+        /// Gets or sets the default course id.
+        /// </summary>
+        /// <value>The default course id.</value>       
+        //[Required(ErrorMessage = "{0} is required.")]
+        //[Range(1, int.MaxValue, ErrorMessage = "Please Select your Course")]
+        public int CourseId { get; set; }
 
         /// <summary>
         /// Gets or sets the membership_ id.
@@ -162,10 +185,13 @@ namespace UniEBoard.Service.Models
         {
             get
             {
-                foreach (var role in this.Roles)
+                if (this.Roles != null)
                 {
-                    if (role.Title.Trim().ToLower().Equals(Service.C.Roles.Administrator.ToLower()))
-                        return true;
+                    foreach (var role in this.Roles)
+                    {
+                        if (role.Title.Trim().ToLower().Equals(Service.C.Roles.Administrator.ToLower()))
+                            return true;
+                    }
                 }
                 return false;
             }
@@ -175,10 +201,13 @@ namespace UniEBoard.Service.Models
         {
             get
             {
-                foreach (var role in this.Roles)
+                if (this.Roles != null)
                 {
-                    if (role.Title.Trim().ToLower().Equals(Service.C.Roles.Teacher.ToLower()))
-                        return true;
+                    foreach (var role in this.Roles)
+                    {
+                        if (role.Title.Trim().ToLower().Equals(Service.C.Roles.Teacher.ToLower()))
+                            return true;
+                    }
                 }
                 return false;
             }
@@ -188,10 +217,13 @@ namespace UniEBoard.Service.Models
         {
             get
             {
-                foreach (var role in this.Roles)
+                if (this.Roles != null)
                 {
-                    if (role.Title.Trim().ToLower().Equals(Service.C.Roles.Student.ToLower()))
-                        return true;
+                    foreach (var role in this.Roles)
+                    {
+                        if (role.Title.Trim().ToLower().Equals(Service.C.Roles.Student.ToLower()))
+                            return true;
+                    }
                 }
                 return false;
             }

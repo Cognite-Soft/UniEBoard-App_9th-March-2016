@@ -31,8 +31,10 @@
                         <!-- Videos -->
                         @if (item.AssetType == 1)
                         {
-                            <a data-effect="st-effect-1" class="sidebar-activate reveal-side" data-id="@item.Id" data-video="Video_@item.Id" title="@item.Name">
-                                <i class="icon-youtube-play"></i></a>
+                            <iframe src="@item.Path" frameborder="0" allowfullscreen height="400" width="400"></iframe>
+                            <a data-effect="st-effect-1" class="sidebar-active reveal-side" data-id="@item.Id" data-video="Video_@item.Id" title="@item.Name">
+                           @*     <i class="icon-youtube-play"></i>*@
+                        </a>
                         }
                         else if (item.AssetType == 3 || item.ContentType.Equals("image/jpeg"))
                         {
@@ -46,11 +48,12 @@
                                 <i class="icon-file-alt"></i>
                             </a>
                         }
-                        <small>@item.AssetExtension</small>
+                       @* <small>@item.AssetExtension</small>*@
+                        
                     </td>
 
                     <td>
-                        <input type="text" name="Name_@item.Id" id="Name_@item.Id" value="@item.Name" data-assetid="@item.Id">
+                        <input type="text" name="Name_@item.Id" id="Name_@item.Id" value="@item.Name" data-assetid="@item.Id" readonly>
                     </td>                    
                     <td class="tags" id="assetTags_@item.Id">
                         <div class="tags" id="assetTagsDiv_@item.Id">
@@ -58,7 +61,7 @@
                         </div>
                         <input type="text" id="Tag_@item.Id" name="Tag_@item.Id" class="autocompleteTagAsset" data-assetid="@item.Id" data-source="@Url.Action("AutoCompleteAssetTags", "Teacher")" data-type="updateAsset"> 
                         
-</td>
+                    </td>
                     <td class="ar">
                         <a target="_self" href='@Url.Action("RemoveAsset", "Teacher", new { assetId = item.Id })' onclick="return confirm('Are you sure you wish to delete this item?');">
                             <i class="icon-remove"></i>

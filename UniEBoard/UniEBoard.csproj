@@ -29,6 +29,7 @@
     <SccProvider>
     </SccProvider>
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -95,12 +96,13 @@
       <HintPath>..\Dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\MySql.Data.6.8.3\lib\net45\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.9.5\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="mysql.data.entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySQL.Data.Entities.6.8.3.0\lib\net45\mysql.data.entity.EF6.dll</HintPath>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.Entity.6.9.5\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Web, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -213,6 +215,7 @@
     <Compile Include="Controllers\AutoCompleteController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\ModuleController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
@@ -220,6 +223,7 @@
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2471,12 +2475,15 @@
     <Content Include="node_modules\node-sass\test\mem_test_renderSync.js" />
     <Content Include="node_modules\node-sass\test\source_comments_spec.js" />
     <Content Include="node_modules\node-sass\test\test.js" />
+    <Content Include="npmPlaceholder.txt" />
     <Content Include="Scripts\custom\cx.ajax.js" />
     <Content Include="Scripts\custom\global.js" />
     <Content Include="Scripts\custom\cognite.ajax.js" />
-    <Content Include="Scripts\jquery-2.0.3-vsdoc.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <None Include="Scripts\jquery-2.1.3.intellisense.js" />
+    <Content Include="bower_components\jquery\dist\jquery-2.1.3.js" />
+    <Content Include="bower_components\jquery\dist\jquery-2.1.3.min.js" />
     <Content Include="Scripts\jquery-migrate-1.2.1.js" />
     <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\js\chart.js" />
@@ -2507,6 +2514,9 @@
     <Content Include="Scripts\js\vendor\jquery-ui.js" />
     <Content Include="Scripts\js\vendor\jquery.js" />
     <Content Include="Scripts\js\vendor\zepto.js" />
+    <Content Include="Scripts\lib\jquery-2.1.3.js" />
+    <Content Include="Scripts\lib\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\lib\readmelibs.txt" />
     <Content Include="Videos\test-video.mp4" />
     <Content Include="Views\Discussion\Discussion.cshtml" />
     <Content Include="Views\Shared\_TeacherNavigationalElementsPartial.cshtml" />
@@ -2553,10 +2563,13 @@
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\User\GetAllUsers.cshtml" />
+    <Content Include="Views\User\Users.cshtml" />
+    <Content Include="Views\User\_CourseTagPartial.cshtml" />
+    <Content Include="Views\User\_CreateUserPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Teacher\Module\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -2589,6 +2602,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".bowerrc" />
+    <None Include=".bin\bower.cmd" />
+    <None Include=".bin\git.cmd" />
+    <None Include=".bin\node.cmd" />
+    <None Include=".bin\npm.cmd" />
     <None Include="App_Assets\test-video.webm" />
     <None Include="App_Assets\Trust Content Manual new.docx" />
     <Content Include="bower.json" />
@@ -3674,9 +3691,10 @@
     <Content Include="node_modules\node-sass\test\lib\vars.scss" />
     <Content Include="node_modules\node-sass\test\sample.scss" />
     <Content Include="package.json" />
-    <None Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="scss\app.scss" />
     <Content Include="scss\_settings.scss" />
+    <Content Include="bower_components\jquery\dist\jquery-2.1.3.min.map" />
+    <Content Include="Scripts\lib\jquery-2.1.3.min.map" />
     <None Include="Videos\test-video.webm" />
     <Content Include="Views\Shared\_DisplayPageViewAllPartial.cshtml" />
     <Content Include="Views\Teacher\_CreateAssetPartial.cshtml" />
@@ -3724,6 +3742,18 @@
     <Content Include="Views\Teacher\Analytics_Static.cshtml" />
     <Content Include="Views\Teacher\_AnalyticsPerCoursePartial.cshtml" />
     <Content Include="Views\Shared\_StatusPartial.cshtml" />
+    <Content Include="Views\Shared\_CreateUserPartial.cshtml" />
+    <Content Include="Views\Shared\_UserFilterPartial.cshtml" />
+    <Content Include="Views\Shared\_UserListPartial.cshtml" />
+    <Content Include="Views\Course\Course.cshtml" />
+    <Content Include="Views\Shared\_CourseFormPartial.cshtml" />
+    <Content Include="Views\Shared\_CourseFilterPartial.cshtml" />
+    <Content Include="Views\Shared\_CourseListPartial.cshtml" />
+    <Content Include="Views\Shared\_CourseModuleTagPartial.cshtml" />
+    <Content Include="Views\Shared\_CourseTagPartial.cshtml" />
+    <Content Include="Views\Module\Modules.cshtml" />
+    <Content Include="Views\Shared\_ModuleFormPartial.cshtml" />
+    <Content Include="Views\Shared\_ModuleListPartial.cshtml" />
     <None Include="Views\Teacher\Grades.cshtml" />
     <Content Include="Views\Discussion\_DiscussionThreadPartial.cshtml" />
     <Content Include="Views\Discussion\_CreateTopicPost.cshtml" />
