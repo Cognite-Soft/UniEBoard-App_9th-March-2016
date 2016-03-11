@@ -16,7 +16,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
-using UniEBoard.Repository;
+//using UniEBoard.Repository;
 using WebMatrix.WebData;
 using UniEBoard.Filters;
 using UniEBoard.Models;
@@ -29,7 +29,6 @@ using UniEBoard.Service.Helpers.Configuration;
 using System.Net.Mail;
 
 using cog = Cognite.MembershipProvider;
-using System.Web.UI;
 
 namespace UniEBoard.Controllers
 {
@@ -37,7 +36,7 @@ namespace UniEBoard.Controllers
     /// The Account Controller
     /// </summary>
     [Authorize]
-    [InitializeSimpleMembership]    
+    [InitializeSimpleMembership]
     public class AccountController : BaseController
     {
         #region Members
@@ -92,13 +91,11 @@ namespace UniEBoard.Controllers
             if (Request.IsAuthenticated)
             {
                 UserViewModel user = _userService.GetUserByUserName(cog.WebSecurity.CurrentUserName);
-                if (user != null && user.IsAdmin) { return RedirectToAction("Index", "Admin"); }
                 if (user != null && user is StudentViewModel) { return RedirectToAction("Index", "Student"); }
                 if (user != null && user is StaffViewModel) { return RedirectToAction("Index", "Teacher"); }
                 return RedirectToAction("Index", "Student");
             }
             ViewBag.ReturnUrl = returnUrl;
-
             ViewBag.LoginTypes = _typeService.GetAllLoginTypes();
             return View();
         }
@@ -125,8 +122,6 @@ namespace UniEBoard.Controllers
                     {
                         switch (model.UserType.Value)
                         {
-                            case (int)LoginType.Administrator:
-                                return !string.IsNullOrEmpty(returnUrl) ? RedirectToLocal(returnUrl) : RedirectToAction("Index", "Admin");
                             case (int)LoginType.Teacher:
                                 return !string.IsNullOrEmpty(returnUrl) ? RedirectToLocal(returnUrl) : RedirectToAction("Index", "Teacher");
                             case (int)LoginType.Student:
@@ -145,7 +140,7 @@ namespace UniEBoard.Controllers
                 }
             }
             ViewBag.LoginTypes = _typeService.GetAllLoginTypes();
-            return View(model);
+            return View(model);          
         }
 
         /// <summary>
@@ -158,10 +153,7 @@ namespace UniEBoard.Controllers
         {
             RemoveOnlineUsers(CurrentUser);
             cog.WebSecurity.Logout();
-            
-            return RedirectToLocal(Url.Action("Index", "Home"));           
-
-            //return RedirectToLocal(Url.Action("Index", "Home"));
+            return RedirectToLocal(Url.Action("Index", "Home"));
         }
 
         /// <summary>
@@ -697,7 +689,6 @@ namespace UniEBoard.Controllers
         /// </summary>
         /// <param name="returnUrl">The return URL.</param>
         /// <returns></returns>
-        
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))

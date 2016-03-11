@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a13938e4be4f4a12b99fb902732811b7" Name="Diagram1" ZoomLevel="95">
+      <Diagram DiagramId="a13938e4be4f4a12b99fb902732811b7" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="UniEBoardModel.Repository.User" Width="1.5" PointX="0.75" PointY="7.625" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Staff" Width="1.5" PointX="16.75" PointY="14.25" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Student" Width="1.5" PointX="19" PointY="14.25" />
@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="UniEBoardModel.Repository.RolePermissions" Width="1.5" PointX="10.625" PointY="9" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Task" Width="1.5" PointX="12.5" PointY="0.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Position" Width="1.5" PointX="12.5" PointY="4.75" />
-        <EntityTypeShape EntityType="UniEBoardModel.Repository.Course" Width="1.5" PointX="10.375" PointY="1.25" />
+        <EntityTypeShape EntityType="UniEBoardModel.Repository.Course" Width="1.5" PointX="9.75" PointY="1.125" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Accreditation" Width="1.5" PointX="12.5" PointY="7.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.CourseRegistration" Width="1.5" PointX="12.5" PointY="10.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.StaffCourses" Width="1.5" PointX="13.125" PointY="1.375" />
@@ -24,14 +24,14 @@
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Video" Width="1.5" PointX="14.5" PointY="0.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Document" Width="1.5" PointX="3.5" PointY="11.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Quiz" Width="1.5" PointX="14.5" PointY="3.75" />
-        <EntityTypeShape EntityType="UniEBoardModel.Repository.Assignment" Width="1.5" PointX="10.875" PointY="15.25" />
+        <EntityTypeShape EntityType="UniEBoardModel.Repository.Assignment" Width="1.5" PointX="10.125" PointY="14.25" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Question" Width="1.5" PointX="14.5" PointY="8.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.QuestionChoice" Width="1.5" PointX="14.5" PointY="12.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Answer" Width="1.5" PointX="16.5" PointY="0.75" />
-        <EntityTypeShape EntityType="UniEBoardModel.Repository.QuizEntry" Width="1.75" PointX="3.5" PointY="13.875" />
+        <EntityTypeShape EntityType="UniEBoardModel.Repository.QuizEntry" Width="1.5" PointX="3.5" PointY="13.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Alert" Width="1.5" PointX="10.625" PointY="5.5" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.CourseTemplate" Width="1.5" PointX="16.5" PointY="3.75" />
-        <EntityTypeShape EntityType="UniEBoardModel.Repository.Submission" Width="1.5" PointX="16.875" PointY="7.25" />
+        <EntityTypeShape EntityType="UniEBoardModel.Repository.Submission" Width="1.5" PointX="16.5" PointY="6.75" />
         <InheritanceConnector EntityType="UniEBoardModel.Repository.Staff" />
         <InheritanceConnector EntityType="UniEBoardModel.Repository.Student" />
         <AssociationConnector Association="UniEBoardModel.Repository.UserGroup" />
@@ -71,7 +71,7 @@
         <AssociationConnector Association="UniEBoardModel.Repository.FK_ModuleAssignment" />
         <AssociationConnector Association="UniEBoardModel.Repository.FK_ModuleUnit" />
         <AssociationConnector Association="UniEBoardModel.Repository.FK_StaffModule" />
-        <EntityTypeShape EntityType="UniEBoardModel.Repository.Discussion" Width="1.5" PointX="5.25" PointY="6" />
+        <EntityTypeShape EntityType="UniEBoardModel.Repository.Discussion" Width="1.5" PointX="4.7523815821634523" PointY="6.2074578284320694" />
         <AssociationConnector Association="UniEBoardModel.Repository.FK_CourseDiscussion" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.TopicPost" Width="1.5" PointX="8" PointY="5.5" />
         <AssociationConnector Association="UniEBoardModel.Repository.UserTopicPost" />
@@ -80,14 +80,24 @@
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Topic" Width="1.5" PointX="8.4906234389593" PointY="20.99002107465175" />
         <AssociationConnector Association="UniEBoardModel.Repository.TopicTopicPost" />
         <AssociationConnector Association="UniEBoardModel.Repository.FK_DiscussionTopic" />
-        <EntityTypeShape EntityType="UniEBoardModel.Repository.Tag" Width="1.5" PointX="6.375" PointY="16.5" />
+        <EntityTypeShape EntityType="UniEBoardModel.Repository.Tag" Width="1.5" PointX="6.4518936380985625" PointY="15.466367341329514" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Asset" Width="1.5" PointX="2.3087818912736986" PointY="18.436600768210646" />
         <InheritanceConnector EntityType="UniEBoardModel.Repository.Video" />
         <InheritanceConnector EntityType="UniEBoardModel.Repository.Document" />
         <AssociationConnector Association="UniEBoardModel.Repository.TagAsset" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.BaseFile" Width="1.5" PointX="1.4864535487659525" PointY="3.046413333642489" />
         <AssociationConnector Association="UniEBoardModel.Repository.SubmissionFileUpload" />
-        <AssociationConnector Association="UniEBoardModel.Repository.AssignmentFileUpload" ManuallyRouted="false" >
+        <AssociationConnector Association="UniEBoardModel.Repository.AssignmentFileUpload" ManuallyRouted="true" >
+          <ConnectorPoint PointX="10.125" PointY="17.634053861979169" />
+          <ConnectorPoint PointX="9.628" PointY="17.634053861979169" />
+          <ConnectorPoint PointX="9.628" PointY="5.1835012820169464" />
+          <ConnectorPoint PointX="6.708333333333333" PointY="5.1835012820169455" />
+          <ConnectorPoint PointX="6.541666666666667" PointY="5.1835012820169464" />
+          <ConnectorPoint PointX="5.003" PointY="5.1835012820169464" />
+          <ConnectorPoint PointX="5.003" PointY="4.497" />
+          <ConnectorPoint PointX="3.192" PointY="4.497" />
+          <ConnectorPoint PointX="3.192" PointY="5.3523839986979667" />
+          <ConnectorPoint PointX="3" PointY="5.3523839986979667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Assets_WebPage" Width="1.5" PointX="9.1271001105788638" PointY="27.950957698724679" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.sysdiagram" Width="1.5" PointX="11.674501670372905" PointY="28.373814640740779" />

@@ -81,7 +81,7 @@ namespace UniEBoard.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                UserViewModel user = _userService.GetUserByMemberShipId(CurrentUser.Id);
+                UserViewModel user = _userService.GetUserByMemberShipId(CurrentUser.Id);                
                 if (user != null && user is StudentViewModel) { return RedirectToAction("Index", "Student"); }
                 if (user != null && user is StaffViewModel) { return RedirectToAction("Index", "Teacher"); }
                 return RedirectToAction("Index", "Student");

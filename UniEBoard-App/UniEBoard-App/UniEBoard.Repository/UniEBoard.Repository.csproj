@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2EF75C3-8CDF-42DA-9E36-49747E36FF07}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UniEBoard.Repository</RootNamespace>
+    <AssemblyName>UniEBoard.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.2\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Data.6.8.3\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="mysql.data.entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySQL.Data.Entities.6.8.3.0\lib\net40\mysql.data.entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Accreditation.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Answer.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnswerQuestionChoice.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Asset.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Assets_WebPage.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Assignment.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseFile.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BaseQuestionTopic.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Course.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseModule.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseRegistration.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseTemplate.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Discussion.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Document.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Factories\AssetEntityFactory.cs" />
+    <Compile Include="Factories\UserEntityFactory.cs" />
+    <Compile Include="File.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gender.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GroupMessage.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Image.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\BootStrapper.cs" />
+    <Compile Include="Membership.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Module.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleQuiz.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permission.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Question.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionChoice.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Quiz.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuizEntry.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\BaseQuestionTopicRepository.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\AssignmentRepository.cs" />
+    <Compile Include="Repositories\BaseFileRepository.cs" />
+    <Compile Include="Repositories\AnswerRepository.cs" />
+    <Compile Include="Repositories\AnswerQuestionChoiceRepository.cs" />
+    <Compile Include="Repositories\AssetRepository.cs" />
+    <Compile Include="Repositories\CourseModuleRepository.cs" />
+    <Compile Include="Repositories\CourseRegistrationRepository.cs" />
+    <Compile Include="Repositories\DepartmentRepository.cs" />
+    <Compile Include="Repositories\ModuleQuizRepository.cs" />
+    <Compile Include="Repositories\StaffCourseRepository.cs" />
+    <Compile Include="Repositories\TopicPostRepository.cs" />
+    <Compile Include="Repositories\TopicRepository.cs" />
+    <Compile Include="Repositories\DiscussionRepository.cs" />
+    <Compile Include="Repositories\ScheduleRepository.cs" />
+    <Compile Include="Repositories\QuestionChoicesRepository.cs" />
+    <Compile Include="Repositories\QuestionRepository.cs" />
+    <Compile Include="Repositories\QuizEntryRepository.cs" />
+    <Compile Include="Repositories\QuizRepository.cs" />
+    <Compile Include="Repositories\VideoRepository.cs" />
+    <Compile Include="Repositories\ModuleRepository.cs" />
+    <Compile Include="Repositories\FileRepository.cs" />
+    <Compile Include="Repositories\CourseRepository.cs" />
+    <Compile Include="Repositories\StaffRepository.cs" />
+    <Compile Include="Repositories\MessageRepository.cs" />
+    <Compile Include="Repositories\SubmissionRepository.cs" />
+    <Compile Include="Repositories\UnitRepository.cs" />
+    <Compile Include="Repositories\ViewedMessageRepository.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
+    <Compile Include="Repositories\MembershipRepository.cs" />
+    <Compile Include="Repositories\StudentRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolePermission.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StaffCourse.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Submission.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tag.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Topic.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TopicPost.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UniEBoard.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniEBoard.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UniEBoard.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UniEBoard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UniEBoard.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Unit.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserGroup.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserQuestion.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Video.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewedMessage.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webpages_Membership.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webpages_OAuthMembership.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="webpages_Roles.cs">
+      <DependentUpon>UniEBoard.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UniEBoard.Model\UniEBoard.Model.csproj">
+      <Project>{47742751-7136-4c84-82ac-849dd9af97ab}</Project>
+      <Name>UniEBoard.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Cognite.Utility.csproj">
+      <Project>{EFC414CD-655B-4C58-9127-EDBBE536517C}</Project>
+      <Name>Cognite.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="UniEBoard.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UniEBoard.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="UniEBoard.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UniEBoard.Context.cs</LastGenOutput>
+      <DependentUpon>UniEBoard.edmx</DependentUpon>
+    </None>
+    <None Include="UniEBoard.edmx.diagram">
+      <DependentUpon>UniEBoard.edmx</DependentUpon>
+    </None>
+    <None Include="UniEBoard.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UniEBoard.cs</LastGenOutput>
+      <DependentUpon>UniEBoard.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UniEBoard.edmx.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -112,7 +112,7 @@ namespace UniEBoard.Service.Models
         /// <value>The department_ id.</value>
         //[Required]
         [Display(Name = "Department")]
-        //[Required(ErrorMessage = "{0} is required.")]
+        [Required(ErrorMessage = "{0} is required.")]
         public int DepartmentId { get; set; }
 
         /// <summary>

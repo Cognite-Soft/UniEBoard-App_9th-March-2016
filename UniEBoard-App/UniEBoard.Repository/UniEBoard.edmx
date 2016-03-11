@@ -412,7 +412,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="longtext" Nullable="false" />
     <Property Name="Body" Type="longtext" Nullable="false" />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="MessageType" Type="int" Nullable="false" />
     <Property Name="FromUserId" Type="int" Nullable="false" />
     <Property Name="RecipientUserId" Type="int" Nullable="true" />
@@ -433,13 +433,13 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Deadline" Type="datetime" Nullable="false"  />
-    <Property Name="PublishFrom" Type="datetime" Nullable="false"  />
-    <Property Name="PublishTo" Type="datetime" Nullable="false"  />
+    <Property Name="Deadline" Type="datetime" Nullable="false" Precision="3" />
+    <Property Name="PublishFrom" Type="datetime" Nullable="false" Precision="3" />
+    <Property Name="PublishTo" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="QuizId" Type="int" Nullable="true" />
     <Property Name="Title" Type="longtext" Nullable="false" />
     <Property Name="Instructions" Type="longtext" Nullable="false" />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="CourseId" Type="int" Nullable="true" />
     <Property Name="ModuleId" Type="int" Nullable="true" />
     <Property Name="UnitId" Type="int" Nullable="true" />
@@ -458,9 +458,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
-    <Property Name="EffectiveFrom" Type="datetime" Nullable="true"  />
-    <Property Name="EffectiveTo" Type="datetime" Nullable="true"  />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
+    <Property Name="EffectiveFrom" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="EffectiveTo" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="Student_Id" Type="int" Nullable="false" />
     <Property Name="Course_Id" Type="int" Nullable="false" />
   </EntityType>
@@ -472,9 +472,9 @@
     <Property Name="Title" Type="longtext" Nullable="false" />
     <Property Name="Overview" Type="longtext" Nullable="true" />
     <Property Name="Length" Type="longtext" Nullable="true" />
-    <Property Name="PublishFrom" Type="datetime" Nullable="true"  />
-    <Property Name="PublishTo" Type="datetime" Nullable="true"  />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
+    <Property Name="PublishFrom" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="PublishTo" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="Approved" Type="bool" Nullable="false" />
     <Property Name="Accreditation_Id" Type="int" Nullable="false" />
     <Property Name="CourseTemplate_Id" Type="int" Nullable="false" />
@@ -588,14 +588,14 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="longtext" Nullable="false" />
-    <Property Name="PublishFrom" Type="datetime" Nullable="false"  />
-    <Property Name="PublishTo" Type="datetime" Nullable="false"  />
+    <Property Name="PublishFrom" Type="datetime" Nullable="false" Precision="3" />
+    <Property Name="PublishTo" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="MaxAttemptsAllowed" Type="int" Nullable="true" />
     <Property Name="Description" Type="longtext" Nullable="true" />
     <Property Name="DisplayEndResults" Type="int" Nullable="false" />
     <Property Name="CorrectUserChoices" Type="bool" Nullable="false" />
     <Property Name="Instructions" Type="longtext" Nullable="true" />
-    <Property Name="Deadline" Type="datetime" Nullable="true"  />
+    <Property Name="Deadline" Type="datetime" Nullable="true" Precision="3" />
   </EntityType>
   <EntityType Name="RolePermissions">
     <Key>
@@ -618,11 +618,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EffectiveFrom" Type="datetime" Nullable="true"  />
-    <Property Name="EffectiveTo" Type="datetime" Nullable="true"  />
+    <Property Name="EffectiveFrom" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="EffectiveTo" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="Staff_Id" Type="int" Nullable="false" />
     <Property Name="Course_Id" Type="int" Nullable="false" />
-    <Property Name="DateCreated" Type="datetime" Nullable="true"  />
+    <Property Name="DateCreated" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="Location" Type="longtext" Nullable="true" />
   </EntityType>
   <EntityType Name="Submissions">
@@ -645,9 +645,9 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="longtext" Nullable="false" />
     <Property Name="Note" Type="longtext" Nullable="true" />
-    <Property Name="Deadline" Type="datetime" Nullable="true"  />
+    <Property Name="Deadline" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="IsCompleted" Type="bool" Nullable="false" />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Units">
@@ -657,8 +657,8 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="longtext" Nullable="false" />
     <Property Name="Description" Type="longtext" Nullable="true" />
-    <Property Name="PublishFrom" Type="datetime" Nullable="true"  />
-    <Property Name="PublishTo" Type="datetime" Nullable="true"  />
+    <Property Name="PublishFrom" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="PublishTo" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="StaffId" Type="int" Nullable="false" />
     <Property Name="ModuleId" Type="int" Nullable="true" />
     <Property Name="VideoId" Type="int" Nullable="true" />
@@ -677,9 +677,9 @@
     <Property Name="FirstName" Type="longtext" Nullable="false" />
     <Property Name="LastName" Type="longtext" Nullable="false" />
     <Property Name="Email" Type="longtext" Nullable="false" />
-    <Property Name="DateOfBirth" Type="datetime" Nullable="true"  />
+    <Property Name="DateOfBirth" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="UserGender" Type="int" Nullable="false" />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="Mobile" Type="longtext" Nullable="true" />
     <Property Name="Phone" Type="longtext" Nullable="true" />
     <Property Name="AccountDisabled" Type="bool" Nullable="false" />
@@ -731,12 +731,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PublishFrom" Type="datetime" Nullable="true"  />
-    <Property Name="PublishTo" Type="datetime" Nullable="true"  />
+    <Property Name="PublishFrom" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="PublishTo" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="CourseId" Type="int" Nullable="false" />
     <Property Name="UnitId" Type="int" Nullable="false" />
-    <Property Name="ScheduledFrom" Type="datetime" Nullable="true"  />
-    <Property Name="ScheduledTo" Type="datetime" Nullable="true"  />
+    <Property Name="ScheduledFrom" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="ScheduledTo" Type="datetime" Nullable="true" Precision="3" />
   </EntityType>
   <EntityType Name="TopicPosts">
     <Key>
@@ -747,7 +747,7 @@
     <Property Name="Title" Type="longtext" Nullable="false" />
     <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="Body" Type="longtext" Nullable="false" />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="Votes" Type="int" Nullable="true" />
     <Property Name="PostedByUserId" Type="int" Nullable="false" />
     <Property Name="ParentTopicPostId" Type="int" Nullable="true" />
@@ -761,9 +761,9 @@
     <Property Name="Title" Type="longtext" Nullable="false" />
     <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="IsTopic" Type="bool" Nullable="false" />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
-    <Property Name="PublishFrom" Type="datetime" Nullable="true"  />
-    <Property Name="PublishTo" Type="datetime" Nullable="true"  />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
+    <Property Name="PublishFrom" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="PublishTo" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="Description" Type="longtext" Nullable="true" />
     <Property Name="OriginatorId" Type="int" Nullable="false" />
   </EntityType>
@@ -817,9 +817,9 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="longtext" Nullable="false" />
     <Property Name="Description" Type="longtext" Nullable="true" />
-    <Property Name="PublishFrom" Type="datetime" Nullable="true"  />
-    <Property Name="PublishTo" Type="datetime" Nullable="true"  />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
+    <Property Name="PublishFrom" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="PublishTo" Type="datetime" Nullable="true" Precision="3" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="Score" Type="longtext" Nullable="true" />
     <Property Name="Approved" Type="bool" Nullable="false" />
     <Property Name="CreatedByStaff_Id" Type="int" Nullable="false" />
@@ -834,7 +834,7 @@
     <Property Name="IsPostModerated" Type="bool" Nullable="false" />
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="longtext" Nullable="false" />
-    <Property Name="DateCreated" Type="datetime" Nullable="false"  />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" Precision="3" />
     <Property Name="Description" Type="longtext" Nullable="true" />
     <Property Name="CourseId" Type="int" Nullable="true" />
     <Property Name="LatestPostId" Type="int" Nullable="true" />
@@ -861,16 +861,16 @@
       <PropertyRef Name="UserId" />
     </Key>
     <Property Name="UserId" Type="int" Nullable="false" />
-    <Property Name="CreateDate" Type="datetime" Nullable="true"  />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="ConfirmationToken" Type="nvarchar" Nullable="true" MaxLength="128" />
     <Property Name="IsConfirmed" Type="bool" Nullable="true" />
-    <Property Name="LastPasswordFailureDate" Type="datetime" Nullable="true"  />
+    <Property Name="LastPasswordFailureDate" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
     <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
-    <Property Name="PasswordChangedDate" Type="datetime" Nullable="true"  />
+    <Property Name="PasswordChangedDate" Type="datetime" Nullable="true" Precision="3" />
     <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
     <Property Name="PasswordVerificationToken" Type="nvarchar" Nullable="true" MaxLength="128" />
-    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" Nullable="true"  />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" Nullable="true" Precision="3" />
   </EntityType>
   <EntityType Name="webpages_OAuthMembership">
     <Key>
@@ -2378,7 +2378,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="false"  />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
           <Property Type="Int32" Name="MessageType" Nullable="false" />
           <NavigationProperty Name="FromUser" Relationship="UniEBoardModel.Repository.UserMessage" FromRole="Message" ToRole="User" />
           <Property Type="Int32" Name="FromUserId" Nullable="false" />
@@ -2406,15 +2406,15 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="DateTime" Name="Deadline" Nullable="false"  />
-          <Property Type="DateTime" Name="PublishFrom" Nullable="false"  />
-          <Property Type="DateTime" Name="PublishTo" Nullable="false"  />
+          <Property Type="DateTime" Name="Deadline" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="PublishFrom" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="PublishTo" Nullable="false" Precision="3" />
           <Property Type="Int32" Name="QuizId" />
           <NavigationProperty Name="Submissions" Relationship="UniEBoardModel.Repository.FK_AssignmentSubmission" FromRole="Assignment" ToRole="Submission" />
           <NavigationProperty Name="Quiz" Relationship="UniEBoardModel.Repository.FK_QuizAssignment" FromRole="Assignment" ToRole="Quiz" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Type="String" Name="Instructions" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="false"  />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
           <NavigationProperty Name="Course" Relationship="UniEBoardModel.Repository.CourseAssignment" FromRole="Assignment" ToRole="Course" />
           <Property Type="Int32" Name="CourseId" Nullable="true" />
           <Property Type="Int32" Name="ModuleId" Nullable="true" />
@@ -2440,9 +2440,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="false"  />
-          <Property Type="DateTime" Name="EffectiveFrom" Nullable="true"  />
-          <Property Type="DateTime" Name="EffectiveTo" Nullable="true"  />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EffectiveFrom" Nullable="true" Precision="3" />
+          <Property Type="DateTime" Name="EffectiveTo" Nullable="true" Precision="3" />
           <Property Type="Int32" Name="Student_Id" Nullable="false" />
           <Property Type="Int32" Name="Course_Id" Nullable="false" />
           <NavigationProperty Name="Course" Relationship="UniEBoardModel.Repository.FK_CourseCourseRegistration" FromRole="CourseRegistration" ToRole="Cours" />
@@ -2456,9 +2456,9 @@
           <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Overview" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Length" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="PublishFrom"  />
-          <Property Type="DateTime" Name="PublishTo"  />
-          <Property Type="DateTime" Name="DateCreated" Nullable="false"  />
+          <Property Type="DateTime" Name="PublishFrom" Precision="3" />
+          <Property Type="DateTime" Name="PublishTo" Precision="3" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
           <Property Type="Boolean" Name="Approved" Nullable="false" />
           <Property Type="Int32" Name="Accreditation_Id" Nullable="false" />
           <Property Type="Int32" Name="CourseTemplate_Id" Nullable="false" />
@@ -2604,8 +2604,8 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="PublishFrom" Nullable="false"  />
-          <Property Type="DateTime" Name="PublishTo" Nullable="false"  />
+          <Property Type="DateTime" Name="PublishFrom" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="PublishTo" Nullable="false" Precision="3" />
           <Property Type="Int32" Name="MaxAttemptsAllowed" Nullable="true" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
           <Property Type="Int32" Name="DisplayEndResults" Nullable="false" />
@@ -2615,7 +2615,7 @@
           <NavigationProperty Name="QuizEntries" Relationship="UniEBoardModel.Repository.FK_QuizQuizEntry" FromRole="Quiz" ToRole="QuizEntry" />
           <NavigationProperty Name="ModuleQuizs" Relationship="UniEBoardModel.Repository.QuizModuleQuiz" FromRole="Quiz" ToRole="ModuleQuiz" />
           <Property Type="String" Name="Instructions" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Type="DateTime" Name="Deadline" Nullable="true"  />
+          <Property Type="DateTime" Name="Deadline" Nullable="true" Precision="3" />
           <NavigationProperty Name="Units" Relationship="UniEBoardModel.Repository.FK_QuizUnit" FromRole="Quiz" ToRole="Unit" />
         </EntityType>
         <EntityType Name="RolePermission">
@@ -2643,11 +2643,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="DateTime" Name="EffectiveFrom" Nullable="true"  />
-          <Property Type="DateTime" Name="EffectiveTo" Nullable="true"  />
+          <Property Type="DateTime" Name="EffectiveFrom" Nullable="true" Precision="3" />
+          <Property Type="DateTime" Name="EffectiveTo" Nullable="true" Precision="3" />
           <Property Type="Int32" Name="Staff_Id" Nullable="false" />
           <Property Type="Int32" Name="Course_Id" Nullable="false" />
-          <Property Type="DateTime" Name="DateCreated"  />
+          <Property Type="DateTime" Name="DateCreated" Precision="3" />
           <Property Type="String" Name="Location" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Course" Relationship="UniEBoardModel.Repository.FK_CourseStaffCourses" FromRole="StaffCours" ToRole="Cours" />
           <NavigationProperty Name="Staff" Relationship="UniEBoardModel.Repository.FK_StaffStaffCourses" FromRole="StaffCours" ToRole="Staff" />
@@ -2691,9 +2691,9 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Note" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="true" />
-          <Property Type="DateTime" Name="Deadline" Nullable="true"  />
+          <Property Type="DateTime" Name="Deadline" Nullable="true" Precision="3" />
           <Property Type="Boolean" Name="IsCompleted" Nullable="false" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="false"  />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
           <Property Type="Int32" Name="UserId" Nullable="false" />
           <NavigationProperty Name="User" Relationship="UniEBoardModel.Repository.FK_UserTask" FromRole="Task" ToRole="User" />
         </EntityType>
@@ -2704,8 +2704,8 @@
           <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="PublishFrom" Type="DateTime"  />
-          <Property Name="PublishTo" Type="DateTime"  />
+          <Property Name="PublishFrom" Type="DateTime" Precision="3" />
+          <Property Name="PublishTo" Type="DateTime" Precision="3" />
           <Property Name="StaffId" Nullable="false" Type="Int32" />
           <Property Name="ModuleId" Type="Int32" Nullable="true" />
           <NavigationProperty Name="CreatedByStaff" Relationship="UniEBoardModel.Repository.FK_StaffUnit" FromRole="Unit" ToRole="Staff" />
@@ -2732,9 +2732,9 @@
           <Property Type="String" Name="FirstName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="LastName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Email" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="DateOfBirth" Nullable="true"  />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" Precision="3" />
           <Property Type="Int32" Name="UserGender" Nullable="false" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="false"  />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
           <Property Type="String" Name="Mobile" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Phone" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="AccountDisabled" Nullable="false" />
@@ -3294,14 +3294,14 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
-          <Property Type="DateTime" Name="PublishFrom" Nullable="true"  />
-          <Property Type="DateTime" Name="PublishTo" Nullable="true"  />
+          <Property Type="DateTime" Name="PublishFrom" Nullable="true" Precision="3" />
+          <Property Type="DateTime" Name="PublishTo" Nullable="true" Precision="3" />
           <NavigationProperty Name="Course" Relationship="UniEBoardModel.Repository.CourseSchedule" FromRole="Schedule" ToRole="Course" />
           <Property Type="Int32" Name="CourseId" Nullable="false" />
           <NavigationProperty Name="Unit" Relationship="UniEBoardModel.Repository.UnitSchedule" FromRole="Schedule" ToRole="Unit" />
           <Property Type="Int32" Name="UnitId" Nullable="false" />
-          <Property Type="DateTime" Name="ScheduledFrom" Nullable="true"  />
-          <Property Type="DateTime" Name="ScheduledTo" Nullable="true"  />
+          <Property Type="DateTime" Name="ScheduledFrom" Nullable="true" Precision="3" />
+          <Property Type="DateTime" Name="ScheduledTo" Nullable="true" Precision="3" />
         </EntityType>
         <Association Name="CourseSchedule">
           <End Type="UniEBoardModel.Repository.Course" Role="Course" Multiplicity="1" />
@@ -3342,7 +3342,7 @@
           <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Type="Int32" Name="Status" Nullable="false" />
           <Property Type="String" Name="Body" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="false"  />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
           <Property Type="Int32" Name="Votes" Nullable="true" />
           <NavigationProperty Name="PostedByUser" Relationship="UniEBoardModel.Repository.UserTopicPost" FromRole="TopicPost" ToRole="User" />
           <Property Type="Int32" Name="PostedByUserId" Nullable="false" />
@@ -3385,9 +3385,9 @@
           <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Type="Int32" Name="Status" Nullable="false" />
           <Property Type="Boolean" Name="IsTopic" Nullable="false" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="false"  />
-          <Property Type="DateTime" Name="PublishFrom" Nullable="true"  />
-          <Property Type="DateTime" Name="PublishTo" Nullable="true"  />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="PublishFrom" Nullable="true" Precision="3" />
+          <Property Type="DateTime" Name="PublishTo" Nullable="true" Precision="3" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Originator" Relationship="UniEBoardModel.Repository.UserBaseQuestionTopic" FromRole="BaseQuestionTopic" ToRole="User" />
           <Property Type="Int32" Name="OriginatorId" Nullable="false" />
@@ -3584,9 +3584,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PublishFrom" Type="DateTime"  />
-          <Property Name="PublishTo" Type="DateTime"  />
-          <Property Name="DateCreated" Type="DateTime" Nullable="false"  />
+          <Property Name="PublishFrom" Type="DateTime" Precision="3" />
+          <Property Name="PublishTo" Type="DateTime" Precision="3" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Approved" Type="Boolean" Nullable="false" />
           <Property Name="CreatedByStaff_Id" Type="Int32" Nullable="false" />
@@ -3666,7 +3666,7 @@
           <Property Type="Boolean" Name="IsPostModerated" Nullable="false" />
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="DateCreated" Nullable="false"  />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" Precision="3" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="CourseId" />
           <Property Type="Int32" Name="LatestPostId" />
@@ -3733,16 +3733,16 @@
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="CreateDate" Type="DateTime"  />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
           <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="IsConfirmed" Type="Boolean" />
-          <Property Name="LastPasswordFailureDate" Type="DateTime"  />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
           <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordChangedDate" Type="DateTime"  />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
           <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime"  />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="webpages_OAuthMembership">
           <Key>

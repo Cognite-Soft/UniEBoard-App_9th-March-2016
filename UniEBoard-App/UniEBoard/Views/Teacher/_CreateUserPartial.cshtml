@@ -26,7 +26,7 @@
                     </div>
                     <div class="large-6 columns">
                         <label for="LastName">Last Name</label>
-                        @Html.TextBoxFor(m => m.LastName, new {required = "required", placeholder = "Enter Last Name..." })                       
+                        @Html.TextBoxFor(m => m.LastName, new {required = "required", placeholder = "Enter Last Name..." })
                     </div>
                 </div>
                 <div class="row">
@@ -38,12 +38,10 @@
                         <label for="Postcode">Postcode/Zip</label>
                         <input name="Postcode" type="text" placeholder="Postcode/Zip" required />
                     </div>
-                    @*<div class="large-3 columns">
+                    <div class="large-3 columns">
                         <label for="Postcode">Role</label>
-                        Html.CustomDropDownList("Roles", (IEnumerable<SelectListItem>)ViewData["Roles"], 0, "Select user role...", new { })
-                        Html.ListBoxFor(m => m.SelectedRole, (IEnumerable<SelectListItem>)ViewData["Roles"], new {  })
-                        @Html.ValidationMessageFor(m => m.SelectedRole)*@
-                    @*</div>*@
+                        @Html.CustomDropDownList("Roles", (IEnumerable<SelectListItem>)ViewData["Roles"], 0, "Select user role...", new { })
+                    </div>
                 </div>
                 <div class="row">
                     <div class="large-6 columns">

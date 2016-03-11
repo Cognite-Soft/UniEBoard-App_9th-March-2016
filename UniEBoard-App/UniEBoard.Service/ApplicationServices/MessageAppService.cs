@@ -33,7 +33,7 @@ namespace UniEBoard.Service.ApplicationServices
         /// Gets or sets the alert manager.
         /// </summary>
         /// <value>The alert manager.</value>
-        public IMessageDomainService  MessageManager { get; set; }
+        public IMessageDomainService MessageManager { get; set; }
 
         /// <summary>
         /// Gets or sets the student viewed message manager.

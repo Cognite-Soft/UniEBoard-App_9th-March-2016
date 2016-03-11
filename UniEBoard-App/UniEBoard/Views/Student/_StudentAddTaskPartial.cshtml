@@ -36,21 +36,14 @@
         @Html.TextAreaFor(m => m.Note, new { placeholder = "Type your task notes here" })  
         //@Html.ValidationMessageFor(m => m.Note)
         
-        <div class="small-11 columns">
         @Html.LabelFor(m => m.Deadline)
         @Html.TextBoxFor(m => m.Deadline, new { placeholder = "Select the deadline date", @class = "datetimepicker" }) 
-        </div>
         @*
         <input class="text-box single-line valid datetimepicker" data-val="true" 
                                 id="Deadline" name="Deadline" type="datetime" placeholder="Select the deadline date"
                                 value="" />
             *@
         @*@Html.ValidationMessageFor(m => m.Deadline)*@
-    
-       
-        <div class="small-1 columns">
-            <a data-focus-id="Deadline" class="button prefix"><i class="icon-calendar"></i></a>
-        </div>
 
         <input type="submit" value="Add" class="small success radius button"/>
     

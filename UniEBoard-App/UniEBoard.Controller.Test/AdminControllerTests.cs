@@ -17,14 +17,12 @@ namespace UniEBoard.Controller.Test
     {
         private Mock<IStudentAppService> _studentService;
         private Mock<IStaffAppService> _staffService;
-        private Mock<IUserAppService> _userAppservice;
 
         [SetUp]
         protected void Setup()
         {
             _studentService = new Mock<IStudentAppService>();
             _staffService = new Mock<IStaffAppService>();
-            _userAppservice = new Mock<IUserAppService>();
         }
 
         /// <summary>
@@ -40,7 +38,7 @@ namespace UniEBoard.Controller.Test
             _studentService.Setup(ss => ss.GetAllStudents()).Returns(models);
 
             // When
-            var controller = new AdminController(_staffService.Object,_studentService.Object, _userAppservice.Object);
+            var controller = new AdminController(_staffService.Object,_studentService.Object);
             var result = (ViewResult)controller.Students();
 
             // Check
@@ -58,7 +56,7 @@ namespace UniEBoard.Controller.Test
             _studentService.Setup(ss => ss.GetStudentByMemberShipId(It.IsAny<int>())).Returns(model);
 
             // When
-            var controller = new AdminController(_staffService.Object, _studentService.Object, _userAppservice.Object);
+            var controller = new AdminController(_staffService.Object, _studentService.Object);
             var result = (ViewResult)controller.Student(studentId);
 
             // Check

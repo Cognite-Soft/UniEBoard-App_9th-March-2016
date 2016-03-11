@@ -14,11 +14,10 @@
     @Styles.Render("~/css/font-awesome.css")
     @Styles.Render("~/css/app.css")
     @Scripts.Render("~/bower_components/modernizr/modernizr.js")
-
     @RenderSection("ajax", required: false)
-      
 </head>
-<body><div id="st-container" class="st-container">
+<body>
+    <div id="st-container" class="st-container">
         <div class="st-menu st-effect-1" id="menu-1">
             <!--side content-->
         </div>
@@ -35,7 +34,7 @@
                         <!--Begin Content-->
                         <!-- Begin Navigation -->
                         <div id="main-nav" class="contain-to-grid">
-                            <div class="close-reveal-modal">X</div>
+                            <div class="close-reveal">X</div>
                             <nav class="top-bar">
                                 <ul class="title-area left">
                                     @RenderSection("firstNavigationElement", required: false)
@@ -103,40 +102,15 @@
     </div><!-- /st-container -->
 
     <!-- cleaned Javascript files do not remove!-->
-
-<!--
-   <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/jquery-ui/ui/minified/jquery-ui.min.js"></script>
     <script src="/bower_components/jqueryui-timepicker-addon/src/jquery-ui-timepicker-addon.js"></script>
     <script src="/bower_components/chart-js/Chart.min.js"></script>    
     <script src="/bower_components/foundation/js/foundation.min.js"></script>
     <script src="/js/app.js"></script>
-    <script src="/js/classie.js"></script> <!-- this can be removed if we rewrite sidebarEffects.js to use jQuery -->
-<!--    <script src="/js/sidebarEffects.js"></script>
+    <script src="/js/classie.js"></script>) <!-- this can be removed if we rewrite sidebarEffects.js to use jQuery -->
+    <script src="/js/sidebarEffects.js"></script>
     <script src="/ckeditor/ckeditor.js"></script>
-    --> 
-
-    <script src="/Scripts/js/jquery-1.7.1.min.js"></script>
-    
-    @Scripts.Render("~/bower_components/jquery/dist/jquery.min.js")
-    @Scripts.Render("~/bower_components/jquery-ui/ui/minified/jquery-ui.min.js")
-    @Scripts.Render("~/bower_components/jqueryui-timepicker-addon/src/jquery-ui-timepicker-addon.js")
-    @Scripts.Render("~/bower_components/chart-js/Chart.min.js")
-   
-    @Scripts.Render("~/bower_components/foundation/js/foundation.min.js")
-    @Scripts.Render("~/bower_components/foundation/js/foundation/foundation.js")
-    @*@Scripts.Render("~/bower_components/foundation/js/foundation/foundation.reveal.js")*@
-    
-    <script src="/bower_components/foundation/js/foundation.min.js"></script>
-    <script src="/bower_components/foundation/js/foundation.js"></script>
-    <script src="/bower_components/foundation/js/foundation/foundation.js"></script>
-    <script src="/bower_components/foundation/js/foundation/foundation.reveal.js"></script>
-
-    @Scripts.Render("~/js/app.js")
-    @Scripts.Render("~/js/classie.js")
-    @Scripts.Render("~/js/sidebarEffects.js")
-    @Scripts.Render("~/ckeditor/ckeditor.js")
-        
     <script>
         $(document).foundation();
     </script>

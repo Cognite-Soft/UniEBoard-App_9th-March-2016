@@ -30,7 +30,7 @@
     <div class="large-12 medium-12 columns">
         <!-- Create Module -->
         @if(CurrentUser.IsAdmin) {
-        <h2>@UniEBoard.Service.Helpers.Configuration.WebSite.Current.TitleModules <small> <a class="create-new"><i class="icon-plus"></i></a></small></h2>
+        <h2>@UniEBoard.Service.Helpers.Configuration.WebSite.Current.TitleModules <small> <a class="create-new "><i class="icon-plus"></i></a></small></h2>
             using (Html.BeginForm("CreateModule", "Teacher", FormMethod.Post, new { @class = "custom" }))
         {
             @*@Html.ValidationSummary(false)*@

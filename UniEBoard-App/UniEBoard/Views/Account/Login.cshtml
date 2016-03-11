@@ -10,7 +10,6 @@
             <a href="dashboard.htm">&nbsp;</a></h1>
     </li>
 }
-
 <!-- Begin Login -->
 <div class="row">
     <div class="large-3 medium-3 columns">
@@ -24,6 +23,8 @@
             </div>*@
         @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "custom", id = "loginForm", name = "loginForm" }))
         {
+
+
             <div class="panel">
                 <div class="row collapse">
                     <div class="large-2 medium-2 columns">
@@ -42,7 +43,7 @@
                         @Html.TextBoxFor(m => m.UserName, new { placeholder = "Type your username", tabindex = "1" })
                         @*@Html.ValidationMessageFor(m => m.UserName)*@
 
-                        @Html.PasswordFor(m => m.Password, new { placeholder = "Type your password", tabindex = "2", onkeydown = "if (event.keyCode == 13) { this.form.submit(); return false; }" })
+                        @Html.PasswordFor(m => m.Password, new { placeholder = "Type your password", tabindex = "2" })
                         @*@Html.ValidationMessageFor(m => m.Password)*@
 
                         <small class="left">@Html.ActionLink("Forgot Password?", "ForgetPassword", "Account", new { tabindex = "4" })</small>

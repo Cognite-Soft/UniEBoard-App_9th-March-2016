@@ -31,8 +31,7 @@
                     }
                     else
                     {
-                       <iframe src="@Url.Action("Render", "Asset", new { Id = item.Id })" frameborder="0" allowfullscreen height="400" width="400"></iframe>
-                    
+                       <iframe src="@Url.Action("Render", "Asset", new { Id = item.Id })" frameborder="0" allowfullscreen></iframe>
                     }
                 </div>
             }
@@ -72,7 +71,7 @@
             </div>
 
             <!-- Pager List -->
-            @Html.Partial("_DisplayPageViewAllPartial", (UniEBoard.Service.Models.PageViewAllFilterViewModel)ViewData["Pager"])            
+            @Html.Partial("_DisplayPageViewAllPartial", (UniEBoard.Service.Models.PageViewAllFilterViewModel)ViewData["Pager"])
 		</div>
 	</div>
 	<!-- End Body -->

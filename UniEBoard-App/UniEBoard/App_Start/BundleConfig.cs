@@ -21,15 +21,8 @@ namespace UniEBoard
             bundles.Add(new ScriptBundle("~/bundles/jqueryform").Include(
             "~/Scripts/jquery.form*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
+            bundles.Add(new ScriptBundle("~/bundles/foundation4").Include(
                          "~/Scripts/js/foundation.min.js"));
-
-            //added by karthik
-            bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
-                        "~/Scripts/js/foundation/foundation.js"));
-            //added by karthik
-            bundles.Add(new ScriptBundle("~/bundles/foundation").Include(
-                        "~/Scripts/js/foundation/foundation.*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
