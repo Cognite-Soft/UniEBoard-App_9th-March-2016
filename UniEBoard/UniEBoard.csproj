@@ -215,6 +215,7 @@
     <Compile Include="Controllers\AutoCompleteController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\ModuleController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
@@ -2569,7 +2570,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Teacher\Module\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -3751,6 +3751,9 @@
     <Content Include="Views\Shared\_CourseListPartial.cshtml" />
     <Content Include="Views\Shared\_CourseModuleTagPartial.cshtml" />
     <Content Include="Views\Shared\_CourseTagPartial.cshtml" />
+    <Content Include="Views\Module\Modules.cshtml" />
+    <Content Include="Views\Shared\_ModuleFormPartial.cshtml" />
+    <Content Include="Views\Shared\_ModuleListPartial.cshtml" />
     <None Include="Views\Teacher\Grades.cshtml" />
     <Content Include="Views\Discussion\_DiscussionThreadPartial.cshtml" />
     <Content Include="Views\Discussion\_CreateTopicPost.cshtml" />
