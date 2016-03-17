@@ -39,6 +39,11 @@ namespace UniEBoard.Controllers
 
         private IUserAppService _userAppService;
 
+        /// <summary>
+        /// Message Service
+        /// </summary>
+        private IMessageAppService _messageService;
+
         #endregion
 
         #region AdminController
@@ -48,11 +53,15 @@ namespace UniEBoard.Controllers
         /// </summary>
         /// <param name="staffService">The staff service.</param>
         /// <param name="studentService">The student service.</param>
-        public AdminController(IStaffAppService staffService, IStudentAppService studentService, IUserAppService userAppService) : base(userAppService)
+        public AdminController(IStaffAppService staffService, 
+                                IStudentAppService studentService, 
+                                IUserAppService userAppService,
+                                 IMessageAppService messageService) : base(userAppService)
         {
             this._staffService = staffService;
             this._studentService = studentService;
             this._userAppService = userAppService;
+            this._messageService = messageService;
         }
 
         #endregion
@@ -152,6 +161,8 @@ namespace UniEBoard.Controllers
 
 
             ViewData["OnlineUsers"] = onlineUsers;
+
+            ViewData["Messages"] = _messageService.GetAllStudentMessages(CurrentUser.Id);
             return View(CurrentUser);
         }
 

@@ -57,7 +57,7 @@
             </div>
             @Html.Partial("_NotificationsPartial", ViewData["Messages"])
         </div>
-        @if (!CurrentUser.IsAdmin)
+        @if (CurrentUser.IsAdmin)
         {
             @Html.Partial("_OnlineUsersPartial", ViewData["OnlineUsers"])
         }

@@ -100,6 +100,8 @@ namespace UniEBoard.Model.Interfaces.DomainService
         /// <returns></returns>
         Course AddCourseByStaff(Course course, int staffId);
 
+        bool AddCourseToStaff(Model.Entities.Course course, int staffId);
+
         /// <summary>
         /// Remove Course From Module by courseId. 
         /// </summary>

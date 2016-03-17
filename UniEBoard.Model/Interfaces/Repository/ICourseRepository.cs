@@ -27,6 +27,7 @@ namespace UniEBoard.Model.Interfaces.Repository
         /// <param name="course">course assigned to staffId</param>
         /// <returns></returns>
         Course AddCourseByStaff(Course course, int staffId);
+        bool AddCourseToStaff(Model.Entities.Course course, int staffId);
 
         /// <summary>
         /// Remove a course association with staff

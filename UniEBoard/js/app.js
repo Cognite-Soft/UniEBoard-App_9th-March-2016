@@ -188,7 +188,7 @@ $(document).ready(function () {
     //Cognite-Code
     $(function () {
         $("#ddlPassport").change(function () {
-            alert("Test Code1")
+           
             if ($(this).val() == "Teacher") {
                 $("#dept").show();
             } else {

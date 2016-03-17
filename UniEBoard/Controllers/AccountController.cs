@@ -118,7 +118,14 @@ namespace UniEBoard.Controllers
                 // by default a user is always set to teacher.
                 //model.UserType = (int)LoginType.Teacher;
                 UserViewModel user = _userService.GetUserByUserName(model.UserName);
-                model.UserType = user is StudentViewModel ? (int)LoginType.Student : (int)LoginType.Teacher;
+                if (user.IsAdmin)
+                {
+                    model.UserType = (int)LoginType.Administrator;
+                }
+                else
+                {
+                    model.UserType = user is StudentViewModel ? (int)LoginType.Student : (int)LoginType.Teacher;
+                }
                 if ((user != null && !user.AccountDisabled) || model.UserType == (int)LoginType.Teacher)
                 {
                     if (cog.WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))

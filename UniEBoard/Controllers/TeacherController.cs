@@ -283,7 +283,7 @@ namespace UniEBoard.Controllers
             ViewData["Quizes"] = _quizAppService.GetAllQuizzes().ToList().Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Title }).ToArray();
             ViewData["Units"] = _unitModuleAppService.GetUnitsForStaff(CurrentUser.CompanyId)
                 .Where(u => u.PublishFrom.Value.Date.Equals(DateTime.Today)).OrderBy(u => u.PublishFrom).ToList();
-            ViewData["Messages"] = _messageService.GetAllStudentMessages(CurrentUser.Id);
+            ViewData["Messages"] = _messageService.GetAllStudentMessages(CurrentUser.Id);            
             ViewBag.ShowTime = true;
             ViewData["DurationList"] = _unitModuleAppService.GetCourseDurations();
             ViewData["OnlineUsers"] = onlineUsers;

@@ -252,6 +252,16 @@ namespace UniEBoard.Model.DomainServices
         }
 
 
+
+
+        public bool AddCourseToStaff(Course course, int staffId)
+        {
+            bool result = CourseRepository.AddCourseToStaff(course, staffId);
+            return result;
+
+        }
+
+
         /// <summary>
         /// Add a course by staff
         /// </summary>

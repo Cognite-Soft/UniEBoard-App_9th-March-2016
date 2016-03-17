@@ -86,7 +86,7 @@ namespace UniEBoard.Controllers
             this._courseModuleService = courseModuleService;
             this._questionAppService = questionAppService;
             this._iUnitModuleAppService = iUnitModuleAppService;
-            _currentUser = CurrentUser;
+            _currentUser = CurrentUser;            
         }
 
         public ActionResult GetAllUsers()
@@ -265,6 +265,8 @@ namespace UniEBoard.Controllers
                             if (cog.WebSecurity.UserExists(studentViewModel.UserName))
                             {
                                 CourseRegistrationViewModel registration = new CourseRegistrationViewModel() { Course_Id = user.CourseId };
+                                
+
 
                                 ((StudentViewModel)studentViewModel).CourseRegistrations = new List<CourseRegistrationViewModel> { registration };
                                 var _user = _userAppService.CreateUser(cog.WebSecurity.GetUserId(studentViewModel.UserName), studentViewModel);                               
@@ -294,20 +296,34 @@ namespace UniEBoard.Controllers
                                 DepartmentId = user.Department
                             };
 
-                           
+                            
+                            
+                                
                             cog.WebSecurity.CreateUserAndAccount(staffViewModel.UserName, staffViewModel.Password);
 
                             if (cog.WebSecurity.UserExists(staffViewModel.UserName))
                             {
                                 CourseRegistrationViewModel registration = new CourseRegistrationViewModel() { Course_Id = user.CourseId };
 
-
+                               
                                 //   
                                 var _userExists = _userAppService.GetUserByEmailId(user.Email);
                                 if (_userExists == null)
-                                {
+                                {                                    
                                     var _user = _userAppService.CreateUser(cog.WebSecurity.GetUserId(staffViewModel.UserName), staffViewModel);
                                     _userAppService.AssignRole(_user.Id, Service.C.Roles.Teacher);
+
+                                    //Add Staff to course
+
+                                    Course course = new Course();
+                                    course.Id = user.CourseId;
+                                    course.DepartmentId = user.Department;
+                                    course.CompanyId = CurrentUser.CompanyId;
+                                    CourseViewModel courseViewmodel = new CourseViewModel();
+                                    courseViewmodel = _courseModuleService.GetCourseById(user.CourseId);
+                                    course.Title= courseViewmodel.Title;
+                                    course.Approved = true;
+                                    _courseModuleService.CourseManager.AddCourseToStaff(course, _user.Id);
                                 }
                                 else 
                                 {
@@ -330,7 +346,7 @@ namespace UniEBoard.Controllers
             {
                 ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", "Error creating user. Please try again. If the problem persists, please contact your system administrator.");
             }

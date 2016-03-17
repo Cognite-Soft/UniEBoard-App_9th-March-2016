@@ -209,10 +209,45 @@ namespace UniEBoard.Repository.Repositories
             return courselist;
         }
 
+        //This method adds staff to a course while creating a new staff user.
+        public bool AddCourseToStaff(Model.Entities.Course course, int staffId)
+        {
+         
+
+            // This doesn't seem to be the best solution to deal with many-to-many relationships but as of limited knowledge at the time of this writing 
+            // This deemed to be the perfect solution.
+            Model.Entities.StaffCourse staffCourse = new Model.Entities.StaffCourse();
+            staffCourse.Course_Id = course.Id;
+            staffCourse.Staff_Id = staffId;
+
+            // As we don't know the use of these fields so we are setting a dummy datetime value for now
+            staffCourse.EffectiveFrom = DateTime.Now;
+            staffCourse.EffectiveTo = DateTime.Now;
+            StaffCourse newStaffCourse = ObjectMapper.Map<Model.Entities.StaffCourse, StaffCourse>(staffCourse);
+            DbEntityEntry entry = Context.Entry<StaffCourse>(newStaffCourse);
+            if (entry.State == System.Data.Entity.EntityState.Detached)
+            {
+                Context.Entry<StaffCourse>(newStaffCourse).State = System.Data.Entity.EntityState.Added;
+                Context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+            
+
+        }
+
+
+
         public Model.Entities.Course AddCourseByStaff(Model.Entities.Course course, int staffId)
         {
+                    
+
             // Before we add an association to the StaffCourse table let's add the course to the database to generate course Id which
-            // then be used to populate the StaffCourse entity
+            // then be used to populate the StaffCourse entity            
             Model.Entities.Course newCourse = Add(course);
 
             // This doesn't seem to be the best solution to deal with many-to-many relationships but as of limited knowledge at the time of this writing 
