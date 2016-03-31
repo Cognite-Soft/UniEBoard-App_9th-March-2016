@@ -11,14 +11,14 @@
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Group" Width="1.5" PointX="3.125" PointY="7.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Department" Width="1.5" PointX="7.5" PointY="3.125" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Role" Width="1.5" PointX="4.75" PointY="2.375" />
-        <EntityTypeShape EntityType="UniEBoardModel.Repository.Gender" Width="1.5" PointX="6.375" PointY="8.125" />
+        <EntityTypeShape EntityType="UniEBoardModel.Repository.Gender" Width="1.5" PointX="6.375" PointY="9.875" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Permission" Width="1.5" PointX="3.375" PointY="4.625" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.RolePermissions" Width="1.5" PointX="10.625" PointY="9" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Task" Width="1.5" PointX="12.5" PointY="0.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Position" Width="1.5" PointX="12.5" PointY="4.75" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Course" Width="1.5" PointX="10.375" PointY="1.25" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Accreditation" Width="1.5" PointX="12.5" PointY="7.75" />
-        <EntityTypeShape EntityType="UniEBoardModel.Repository.CourseRegistration" Width="1.5" PointX="12.5" PointY="10.75" />
+        <EntityTypeShape EntityType="UniEBoardModel.Repository.CourseRegistration" Width="1.5" PointX="12.125" PointY="10.375" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.StaffCourses" Width="1.5" PointX="13.125" PointY="1.375" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Unit" Width="1.5" PointX="10.125" PointY="9.25" />
         <EntityTypeShape EntityType="UniEBoardModel.Repository.Video" Width="1.5" PointX="14.5" PointY="0.75" />

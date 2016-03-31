@@ -52,7 +52,11 @@ namespace UniEBoard.Repository.Repositories
             List<Model.Entities.User> userList = new List<Model.Entities.User>();
             try
             {
-                IQueryable<User> userQuery = this.Context.Set<User>().Where(u => u.CompanyId.Equals(companyId)).OrderByDescending(u => u.Id);
+                IQueryable<User> userQuery = this.Context.Set<User>()
+                                                .Where(u => u.CompanyId.Equals(companyId))
+                                                .Include(k=>k.Roles)                                               
+                                                .OrderByDescending(u => u.Id);                
+                
                 if (view != 0)
                 {
                     userQuery = userQuery.Take(view);
@@ -82,6 +86,7 @@ namespace UniEBoard.Repository.Repositories
                 IQueryable<User> userQuery = this.Context.Set<Student>()
                     .Where(u => u.CompanyId.Equals(companyId))
                     .Include(s => s.CourseRegistrations)
+                    .Include(k=>k.Roles)
                     .Include(p => p.CourseRegistrations.Select(x => x.Course))
                     .OrderByDescending(u => u.Id);
 
@@ -119,6 +124,7 @@ namespace UniEBoard.Repository.Repositories
                     userQuery = this.Context.Set<Student>()
                     .Where(u => u.CompanyId.Equals(companyId))
                     .Include(s => s.CourseRegistrations)
+                    .Include(k => k.Roles)
                     .Include(p => p.CourseRegistrations.Select(x => x.Course))
                     .OrderByDescending(u => u.Id);
                 }
@@ -127,6 +133,7 @@ namespace UniEBoard.Repository.Repositories
                     userQuery = this.Context.Set<Student>()
                     .Where(u => u.CompanyId.Equals(companyId) && (u.FirstName.ToLower().Contains(filter.ToLower()) || u.LastName.ToLower().Contains(filter.ToLower()) || u.Email.ToLower().Contains(filter.ToLower())))
                     .Include(s => s.CourseRegistrations)
+                    .Include(k => k.Roles)
                     .Include(p => p.CourseRegistrations.Select(x => x.Course))
                     .OrderByDescending(u => u.Id);
                 }
@@ -159,6 +166,7 @@ namespace UniEBoard.Repository.Repositories
                 IQueryable<User> userQuery = this.Context.Set<Staff>()
                     .Where(u => u.CompanyId.Equals(companyId))
                     .Include(s => s.StaffCourses)
+                    .Include(k => k.Roles)
                     .Include(p => p.StaffCourses.Select(x => x.Course))
                     .OrderByDescending(u => u.Id);
 
@@ -212,7 +220,7 @@ namespace UniEBoard.Repository.Repositories
             List<Model.Entities.User> userList = new List<Model.Entities.User>();
             try
             {
-                IQueryable<User> userQuery = this.Context.Set<User>().OrderByDescending(u => u.Id);
+                IQueryable<User> userQuery = this.Context.Set<User>().Include(k => k.Roles).OrderByDescending(u => u.Id);
 
                 // Return Users
                 userList = UserEntityFactory.CreateFromDataModel(userQuery.ToList(), ObjectMapper);
@@ -307,7 +315,7 @@ namespace UniEBoard.Repository.Repositories
             Model.Entities.User user = null;
             try
             {
-                User userEntity = this.Context.Set<User>().FirstOrDefault(x => x.Email.ToLower() == emailId.ToLower());
+                User userEntity = this.Context.Set<User>().Include(k => k.Roles).FirstOrDefault(x => x.Email.ToLower() == emailId.ToLower());
                 user = UserEntityFactory.CreateFromDataModel(userEntity, ObjectMapper);
             }
             catch (Exception ex)
@@ -330,7 +338,7 @@ namespace UniEBoard.Repository.Repositories
             {
                 var course = Context.Set<Course>()
                     .Include(c => c.CourseRegistrations.Select(cr => cr.Student))
-                    .Include(c => c.StaffCourses.Select(sc => sc.Staff))
+                    .Include(c => c.StaffCourses.Select(sc => sc.Staff))                    
                     .Where(c => c.CourseRegistrations.Any(cr => cr.Course_Id.Equals(courseId)) || c.StaffCourses.Any(cr => cr.Course_Id.Equals(courseId))).FirstOrDefault();
                 var students = (from s in course.CourseRegistrations
                                select s.Student).ToList();

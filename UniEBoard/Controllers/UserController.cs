@@ -221,12 +221,12 @@ namespace UniEBoard.Controllers
         public ActionResult CreateUser(UserViewModel user)
         {
             StaffViewModel staff = _staffService.GetStaffByMemberShipId(_currentUser.Membership_Id);
-
+           
          
             try
             {
-                if (ModelState.IsValid)
-                {
+                //if (ModelState.IsValid)
+                //{
                     UserViewModel existingUser = _userAppService.GetUserByUserName(user.Email);
                     // if user exists then add it to the selected course
                     if (existingUser != null)
@@ -258,7 +258,8 @@ namespace UniEBoard.Controllers
                                 UserName = user.Email,
                                 Password = "Password123",
                                 UserGender = (int)GenderType.NotSpecified,
-                                CompanyId = _currentUser.CompanyId
+                                CompanyId = _currentUser.CompanyId,
+                                UserType = 1
                             };                            
                             cog.WebSecurity.CreateUserAndAccount(studentViewModel.UserName, studentViewModel.Password);
 
@@ -293,7 +294,8 @@ namespace UniEBoard.Controllers
                                 UserGender = (int)GenderType.NotSpecified,
                                 CompanyId = _currentUser.CompanyId,
                                 Position_Id = user.Position,
-                                DepartmentId = user.Department
+                                DepartmentId = user.Department,
+                                UserType = 2
                             };
 
                             
@@ -339,7 +341,7 @@ namespace UniEBoard.Controllers
                         
                     }
                     return RedirectToAction("Users");
-                }
+                //}
 
             }
             catch (MembershipCreateUserException e)

@@ -35,16 +35,26 @@
                             <td><p>@item.LastName @*<input type="text" name="LastName" id="LastName" value="@item.LastName">*@</p></td>
                             <td><p>@item.Email @*<input type="text" name="Email" id="Email" value="@item.Email">*@</p></td>
                             <td><p>Mobile</p></td>
-                            <td class="tags" id="courseTags_@item.Id">
+                            @*@if (  item.selectedcourse).))
+                            {
+                                <td> @item.selectedcourse.Title</td>
+                            }
+                            else {
+                                <td></td>
+                            }*@
+                            @*<td class="tags" id="courseTags_@item.Id">
                                 @Html.Partial("_CourseTagPartial", item.Courses, new ViewDataDictionary { { "UserIdentifier", item.Id } })                               
-                            </td>
+                            </td>*@
                             <td>
-                                <select class="small">
+                                @item.Roles.Select(u=>u.Description).FirstOrDefault()                            
+                            </td>
+                            
+                                @*<select class="small">
                                     <option value="value">Student</option>
                                     <option value="value">Teacher</option>
                                     <option value="value">Admin</option>
-                                </select>
-                            </td>
+                                </select>*@
+                            
                             <td class="action-2-icons">
                                 <div class="switch tiny radius ajaxUpdate" data-source="@Url.Action("UpdateUser")" title="Disable user account">
                                     @*<input id="a_@item.Id" name="switch-a_@item.Id" type="radio">*@
