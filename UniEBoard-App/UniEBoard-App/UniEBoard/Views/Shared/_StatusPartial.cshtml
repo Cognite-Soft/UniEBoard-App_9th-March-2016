@@ -1,8 +1,0 @@
-﻿
-@if (TempData["StatusMessage"]!=null)
-{
-<div data-alert="" class="alert-box secondary radius @(@Convert.ToInt32(TempData["Status"]) == 1 ? "success" : @Convert.ToInt32(TempData["Status"]) == 2 ? "warning" : "info")">    
-    @TempData["StatusMessage"]
-    <a href="" class="close">×</a>
-</div>
-}

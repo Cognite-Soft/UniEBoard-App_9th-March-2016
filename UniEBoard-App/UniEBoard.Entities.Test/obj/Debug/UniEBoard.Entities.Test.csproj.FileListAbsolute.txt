@@ -1,7 +1,0 @@
-F:\UniEBoard-App\UniEBoard-App\UniEBoard.Entities.Test\bin\Debug\UniEBoard.Entities.Test.dll
-F:\UniEBoard-App\UniEBoard-App\UniEBoard.Entities.Test\bin\Debug\UniEBoard.Entities.Test.pdb
-F:\UniEBoard-App\UniEBoard-App\UniEBoard.Entities.Test\bin\Debug\Moq.dll
-F:\UniEBoard-App\UniEBoard-App\UniEBoard.Entities.Test\bin\Debug\nunit.framework.dll
-F:\UniEBoard-App\UniEBoard-App\UniEBoard.Entities.Test\obj\Debug\UniEBoard.Entities.Test.csprojResolveAssemblyReference.cache
-F:\UniEBoard-App\UniEBoard-App\UniEBoard.Entities.Test\obj\Debug\UniEBoard.Entities.Test.dll
-F:\UniEBoard-App\UniEBoard-App\UniEBoard.Entities.Test\obj\Debug\UniEBoard.Entities.Test.pdb
